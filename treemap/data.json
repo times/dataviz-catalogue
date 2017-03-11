@@ -1,0 +1,338 @@
+{
+  "name": "transfers_position_in",
+  "children": [
+    {
+      "name": "Defender",
+      "children": [
+        {
+          "name": "Cohen Bramall",
+          "fee": "0.04",
+          "fromto": "Hednesford Town to Arsenal",
+          "position": "Defender",
+          "id": "transfers_position_in.Defender.Cohen Bramall"
+        },
+        {
+          "name": "Robbie Brady",
+          "fee": "13.00",
+          "fromto": "Norwich City to Burnley",
+          "position": "Defender",
+          "id": "transfers_position_in.Defender.Robbie Brady"
+        },
+        {
+          "name": "Jeffrey Schlupp",
+          "fee": "12.50",
+          "fromto": "Leicester City to Crystal Palace",
+          "position": "Defender",
+          "id": "transfers_position_in.Defender.Jeffrey Schlupp"
+        },
+        {
+          "name": "Patrick v. Aanholt",
+          "fee": "14.00",
+          "fromto": "Sunderland to Crystal Palace",
+          "position": "Defender",
+          "id": "transfers_position_in.Defender.Patrick v. Aanholt"
+        },
+        {
+          "name": "Mamadou Sakho",
+          "fee": "0.00",
+          "fromto": "Liverpool to Crystal Palace",
+          "position": "Defender",
+          "id": "transfers_position_in.Defender.Mamadou Sakho"
+        },
+        {
+          "name": "Omar Elabdellaoui",
+          "fee": "0.00",
+          "fromto": "Olympiacos to Hull City",
+          "position": "Defender",
+          "id": "transfers_position_in.Defender.Omar Elabdellaoui"
+        },
+        {
+          "name": "Andrea Ranocchia",
+          "fee": "0.00",
+          "fromto": "Inter Milan to Hull City",
+          "position": "Defender",
+          "id": "transfers_position_in.Defender.Andrea Ranocchia"
+        },
+        {
+          "name": "Molla Wague",
+          "fee": "0.00",
+          "fromto": "Granada CF to Leicester City",
+          "position": "Defender",
+          "id": "transfers_position_in.Defender.Molla Wague"
+        },
+        {
+          "name": "Joleon Lescott",
+          "fee": "0.00",
+          "fromto": "AEK Athens to Sunderland",
+          "position": "Defender",
+          "id": "transfers_position_in.Defender.Joleon Lescott"
+        },
+        {
+          "name": "Bryan Oviedo",
+          "fee": "3.75",
+          "fromto": "Everton to Sunderland",
+          "position": "Defender",
+          "id": "transfers_position_in.Defender.Bryan Oviedo"
+        },
+        {
+          "name": "Martin Olsson",
+          "fee": "4.50",
+          "fromto": "Norwich City to Swansea City",
+          "position": "Defender",
+          "id": "transfers_position_in.Defender.Martin Olsson"
+        },
+        {
+          "name": "Marc Wilson",
+          "fee": "0.00",
+          "fromto": "Bournemouth to West Bromwich Albion",
+          "position": "Defender",
+          "id": "transfers_position_in.Defender.Marc Wilson"
+        },
+        {
+          "name": "José Fonte",
+          "fee": "8.00",
+          "fromto": "Southampton to West Ham United",
+          "position": "Defender",
+          "id": "transfers_position_in.Defender.José Fonte"
+        },
+        {
+          "name": "Nathan Holland",
+          "fee": "0.00",
+          "fromto": "Everton to West Ham United",
+          "position": "Defender",
+          "id": "transfers_position_in.Defender.Nathan Holland"
+        }
+      ],
+      "id": "transfers_position_in.Defender"
+    },
+    {
+      "name": "Goalkeeper",
+      "children": [
+        {
+          "name": "Aaron Ramsdale",
+          "fee": "0.04",
+          "fromto": "Sheffield United to Bournemouth",
+          "position": "Goalkeeper",
+          "id": "transfers_position_in.Goalkeeper.Aaron Ramsdale"
+        },
+        {
+          "name": "Mouez Hassen",
+          "fee": "0.00",
+          "fromto": "OGC Nice to Southampton",
+          "position": "Goalkeeper",
+          "id": "transfers_position_in.Goalkeeper.Mouez Hassen"
+        },
+        {
+          "name": "Lee Grant",
+          "fee": "1.30",
+          "fromto": "Derby County to Stoke City",
+          "position": "Goalkeeper",
+          "id": "transfers_position_in.Goalkeeper.Lee Grant"
+        }
+      ],
+      "id": "transfers_position_in.Goalkeeper"
+    },
+    {
+      "name": "Midfielder",
+      "children": [
+        {
+          "name": "Joey Barton",
+          "fee": "0.00",
+          "fromto": "Rangers to Burnley",
+          "position": "Midfielder",
+          "id": "transfers_position_in.Midfielder.Joey Barton"
+        },
+        {
+          "name": "Ashley Westwood",
+          "fee": "5.00",
+          "fromto": "Aston Villa to Burnley",
+          "position": "Midfielder",
+          "id": "transfers_position_in.Midfielder.Ashley Westwood"
+        },
+        {
+          "name": "Luka Milivojevic",
+          "fee": "13.60",
+          "fromto": "Olympiacos to Crystal Palace",
+          "position": "Midfielder",
+          "id": "transfers_position_in.Midfielder.Luka Milivojevic"
+        },
+        {
+          "name": "Morgan Schneiderlin",
+          "fee": "24.00",
+          "fromto": "Manchester United to Everton",
+          "position": "Midfielder",
+          "id": "transfers_position_in.Midfielder.Morgan Schneiderlin"
+        },
+        {
+          "name": "Evandro Goebel",
+          "fee": "2.13",
+          "fromto": "Porto to Hull City",
+          "position": "Midfielder",
+          "id": "transfers_position_in.Midfielder.Evandro Goebel"
+        },
+        {
+          "name": "Markus Henriksen",
+          "fee": "4.25",
+          "fromto": "AZ Alkmaar to Hull City",
+          "position": "Midfielder",
+          "id": "transfers_position_in.Midfielder.Markus Henriksen"
+        },
+        {
+          "name": "Lazar Markovic",
+          "fee": "0.00",
+          "fromto": "Liverpool to Hull City",
+          "position": "Midfielder",
+          "id": "transfers_position_in.Midfielder.Lazar Markovic"
+        },
+        {
+          "name": "Alfred N'Diaye",
+          "fee": "0.00",
+          "fromto": "Villarreal to Hull City",
+          "position": "Midfielder",
+          "id": "transfers_position_in.Midfielder.Alfred N'Diaye"
+        },
+        {
+          "name": "Wilfred Ndidi",
+          "fee": "15.00",
+          "fromto": "Genk to Leicester City",
+          "position": "Midfielder",
+          "id": "transfers_position_in.Midfielder.Wilfred Ndidi"
+        },
+        {
+          "name": "Adlene Guedioura",
+          "fee": "0.00",
+          "fromto": "Watford to Middlesbrough",
+          "position": "Midfielder",
+          "id": "transfers_position_in.Midfielder.Adlene Guedioura"
+        },
+        {
+          "name": "Darron Gibson",
+          "fee": "3.75",
+          "fromto": "Everton to Sunderland",
+          "position": "Midfielder",
+          "id": "transfers_position_in.Midfielder.Darron Gibson"
+        },
+        {
+          "name": "Luciano Narsingh",
+          "fee": "4.00",
+          "fromto": "PSV Eindhoven to Swansea City",
+          "position": "Midfielder",
+          "id": "transfers_position_in.Midfielder.Luciano Narsingh"
+        },
+        {
+          "name": "Tom Carroll",
+          "fee": "4.50",
+          "fromto": "Tottenham Hotspur to Swansea City",
+          "position": "Midfielder",
+          "id": "transfers_position_in.Midfielder.Tom Carroll"
+        },
+        {
+          "name": "Tom Cleverley",
+          "fee": "0.00",
+          "fromto": "Everton to Watford",
+          "position": "Midfielder",
+          "id": "transfers_position_in.Midfielder.Tom Cleverley"
+        },
+        {
+          "name": "Jake Livermore",
+          "fee": "10.00",
+          "fromto": "Hull City to West Bromwich Albion",
+          "position": "Midfielder",
+          "id": "transfers_position_in.Midfielder.Jake Livermore"
+        },
+        {
+          "name": "Robert Snodgrass",
+          "fee": "10.20",
+          "fromto": "Hull City to West Ham United",
+          "position": "Midfielder",
+          "id": "transfers_position_in.Midfielder.Robert Snodgrass"
+        }
+      ],
+      "id": "transfers_position_in.Midfielder"
+    },
+    {
+      "name": "Striker",
+      "children": [
+        {
+          "name": "Ademola Lookman",
+          "fee": "7.50",
+          "fromto": "Charlton Athletic to Everton",
+          "position": "Striker",
+          "id": "transfers_position_in.Striker.Ademola Lookman"
+        },
+        {
+          "name": "Oumar Niasse",
+          "fee": "0.00",
+          "fromto": "Everton to Hull City",
+          "position": "Striker",
+          "id": "transfers_position_in.Striker.Oumar Niasse"
+        },
+        {
+          "name": "Kamil Grosicki",
+          "fee": "7.00",
+          "fromto": "Stade Rennais to Hull City",
+          "position": "Striker",
+          "id": "transfers_position_in.Striker.Kamil Grosicki"
+        },
+        {
+          "name": "Gabriel Jesus",
+          "fee": "27.20",
+          "fromto": "Palmeiras to Manchester City",
+          "position": "Striker",
+          "id": "transfers_position_in.Striker.Gabriel Jesus"
+        },
+        {
+          "name": "Rudy Gestede",
+          "fee": "6.00",
+          "fromto": "Aston Villa to Middlesbrough",
+          "position": "Striker",
+          "id": "transfers_position_in.Striker.Rudy Gestede"
+        },
+        {
+          "name": "Patrick Bamford",
+          "fee": "10.00",
+          "fromto": "Chelsea to Middlesbrough",
+          "position": "Striker",
+          "id": "transfers_position_in.Striker.Patrick Bamford"
+        },
+        {
+          "name": "Manolo Gabbiadini",
+          "fee": "14.45",
+          "fromto": "Napoli to Southampton",
+          "position": "Striker",
+          "id": "transfers_position_in.Striker.Manolo Gabbiadini"
+        },
+        {
+          "name": "Saido Berahino",
+          "fee": "15.00",
+          "fromto": "West Bromwich Albion to Stoke City",
+          "position": "Striker",
+          "id": "transfers_position_in.Striker.Saido Berahino"
+        },
+        {
+          "name": "Jordan Ayew",
+          "fee": "0.00",
+          "fromto": "Aston Villa to Swansea City",
+          "position": "Striker",
+          "id": "transfers_position_in.Striker.Jordan Ayew"
+        },
+        {
+          "name": "Mauro Zárate",
+          "fee": "2.30",
+          "fromto": "Fiorentina to Watford",
+          "position": "Striker",
+          "id": "transfers_position_in.Striker.Mauro Zárate"
+        },
+        {
+          "name": "M'Baye Niang",
+          "fee": "0.00",
+          "fromto": "AC Milan to Watford",
+          "position": "Striker",
+          "id": "transfers_position_in.Striker.M'Baye Niang"
+        }
+      ],
+      "id": "transfers_position_in.Striker"
+    }
+  ],
+  "id": "transfers_position_in"
+}

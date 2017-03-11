@@ -1,0 +1,43 @@
+svg {
+  margin: 0 auto;
+  display: flex;
+  background-color: #f7f8f1;
+}
+text, .text {
+  font: 15px sans-serif;
+  fill: white;
+  color: white;
+}
+.d3-tip {
+  line-height: 1;
+  font: 15px sans-serif;
+  fill: white;
+  color: white;
+  z-index: 1000;
+}
+
+.legendTitle text {
+  font: 18px serif;
+  fill: black;
+}
+
+.playerInfoTitle text {
+  font-size: 30px;
+  font-family: serif;
+  fill: black;
+}
+.playerInfo text {
+  font: 15px sans-serif;
+  fill: #696969;
+
+  &.mobile {
+    font: 20px serif;
+    fill: #1d1d1d;
+  }
+}
+
+.playerNamesFee {
+  font-size: 15px;
+  fill: rgba(255,255,255, .6)
+}
+
