@@ -1,0 +1,50 @@
+body {
+  background-color: #f9f8f3;
+}
+svg {
+  margin: 0 auto;
+  padding: 25px;
+  padding-bottom: 90px;
+  padding-right: 50px;
+  display: flex;
+}
+
+.axis, .axis text, text {
+  font: 15px sans-serif;
+  fill: #666;
+  color: #666;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: lightgrey;
+  stroke-width: 1px;
+  shape-rendering: crispEdges;
+  stroke-dasharray: 5;
+}
+.axis .domain {
+  stroke-width: 0px;
+}
+
+.line {
+  fill: none;
+  stroke: #254251;
+  stroke-width: 2px;
+}
+
+.zero {
+  stroke: lightgrey;
+  stroke-width: 1px;
+  stroke-dasharray: 5;
+}
+
+.swoop path {
+  fill: none;
+  stroke: #F37F2F;
+  stroke-width: 2px;
+}
+.swoop text {
+  color:#F37F2F;
+  fill:#F37F2F;
+}
