@@ -1,18 +1,15 @@
 svg {
   margin: 0 auto;
   padding: 25px;
-  padding-bottom: 110px;
-  padding-right: 110px;
-  display: flex;
   background-color: #f7f8f1;
+  display: flex;
 }
 
-.axis, .axis text, text {
+.axis, .axis text {
   font: 15px sans-serif;
-  fill: #666;
   color: #666;
+  fill: #666;
 }
-
 .axis path,
 .axis line {
   fill: none;
@@ -21,28 +18,33 @@ svg {
   shape-rendering: crispEdges;
   stroke-dasharray: 5;
 }
-.axis .domain {
-  stroke-width: 0px;
+.axis path {
+  display: none;
 }
 
 .line {
   fill: none;
   stroke: #254251;
+  stroke-width: 3px;
+}
+
+.label {
+  background-color: #fff;
+  font: 15px sans-serif;
+  fill: #666;
+}
+
+.annotations {
+  font: 15px sans-serif;
+  fill: #F37F2F;
+}
+
+path {
+  stroke: #F37F2F;
   stroke-width: 2px;
 }
 
 .zero {
   stroke: lightgrey;
   stroke-width: 1px;
-  stroke-dasharray: 5;
-}
-
-.swoop path {
-  fill: none;
-  stroke: #F37F2F;
-  stroke-width: 2px;
-}
-.swoop text {
-  color:#F37F2F;
-  fill:#F37F2F;
-}
+}  

@@ -1,0 +1,142 @@
+[
+  {
+    "Player Name": "Glenn Murray",
+    "Fee": 3,
+    "Age": 33
+  },
+  {
+    "Player Name": "Lukas Jutkiewicz",
+    "Fee": 1,
+    "Age": 27
+  },
+  {
+    "Player Name": "Danny Lafferty",
+    "Fee": 0.43,
+    "Age": 27
+  },
+  {
+    "Player Name": "Oscar",
+    "Fee": 52,
+    "Age": 25
+  },
+  {
+    "Player Name": "John Obi Mikel",
+    "Fee": 9.5,
+    "Age": 29
+  },
+  {
+    "Player Name": "Patrick Bamford",
+    "Fee": 10,
+    "Age": 23
+  },
+  {
+    "Player Name": "Darron Gibson",
+    "Fee": 3.75,
+    "Age": 29
+  },
+  {
+    "Player Name": "Bryan Oviedo",
+    "Fee": 3.75,
+    "Age": 26
+  },
+  {
+    "Player Name": "Jake Livermore",
+    "Fee": 10,
+    "Age": 27
+  },
+  {
+    "Player Name": "Robert Snodgrass",
+    "Fee": 10.2,
+    "Age": 29
+  },
+  {
+    "Player Name": "Jeffrey Schlupp",
+    "Fee": 12.5,
+    "Age": 24
+  },
+  {
+    "Player Name": "Luis Hernandez",
+    "Fee": 1.7,
+    "Age": 27
+  },
+  {
+    "Player Name": "Joe Maguire",
+    "Fee": 0.05,
+    "Age": 21
+  },
+  {
+    "Player Name": "Tiago Ilori",
+    "Fee": 3.75,
+    "Age": 23
+  },
+  {
+    "Player Name": "George Glendon",
+    "Fee": 0.09,
+    "Age": 21
+  },
+  {
+    "Player Name": "Ian Lawlor",
+    "Fee": 0.09,
+    "Age": 22
+  },
+  {
+    "Player Name": "Morgan Schneiderlin",
+    "Fee": 24,
+    "Age": 27
+  },
+  {
+    "Player Name": "Memphis Depay",
+    "Fee": 21.7,
+    "Age": 22
+  },
+  {
+    "Player Name": "Sean Goss",
+    "Fee": 0.5,
+    "Age": 21
+  },
+  {
+    "Player Name": "Jordan Rhodes",
+    "Fee": 10,
+    "Age": 26
+  },
+  {
+    "Player Name": "Emilio Nsue",
+    "Fee": 1.02,
+    "Age": 27
+  },
+  {
+    "Player Name": "José Fonte",
+    "Fee": 8,
+    "Age": 33
+  },
+  {
+    "Player Name": "Patrick v. Aanholt",
+    "Fee": 14,
+    "Age": 26
+  },
+  {
+    "Player Name": "Tom Carroll",
+    "Fee": 4.5,
+    "Age": 24
+  },
+  {
+    "Player Name": "Odion Ighalo",
+    "Fee": 19.8,
+    "Age": 27
+  },
+  {
+    "Player Name": "Saido Berahino",
+    "Fee": 15,
+    "Age": 23
+  },
+  {
+    "Player Name": "Dimitri Payet",
+    "Fee": 25,
+    "Age": 29
+  },
+  {
+    "Player Name": "Lewis Page",
+    "Fee": 0.09,
+    "Age": 20
+  }
+]
