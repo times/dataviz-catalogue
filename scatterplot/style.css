@@ -6,7 +6,7 @@ svg {
 }
 
 .axis, .axis text {
-  font: 15px sans-serif;
+  font: 15px arial;
   color: #666;
   fill: #666;
 }
@@ -30,12 +30,12 @@ svg {
 
 .label {
   background-color: #fff;
-  font: 15px sans-serif;
+  font: 15px arial;
   fill: #666;
 }
 
 .annotations {
-  font: 15px sans-serif;
+  font: 15px arial;
   fill: #F37F2F;
 }
 

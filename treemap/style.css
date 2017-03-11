@@ -4,30 +4,30 @@ svg {
   background-color: #f7f8f1;
 }
 text, .text {
-  font: 15px sans-serif;
+  font: 15px arial;
   fill: white;
   color: white;
 }
 .d3-tip {
   line-height: 1;
-  font: 15px sans-serif;
+  font: 15px arial;
   fill: white;
   color: white;
   z-index: 1000;
 }
 
 .legendTitle text {
-  font: 18px serif;
+  font: 18px Times New Roman;
   fill: black;
 }
 
 .playerInfoTitle text {
   font-size: 30px;
-  font-family: serif;
+  font-family: Times New Roman;
   fill: black;
 }
 .playerInfo text {
-  font: 15px sans-serif;
+  font: 15px arial;
   fill: #696969;
 
   &.mobile {

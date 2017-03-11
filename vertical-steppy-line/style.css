@@ -8,7 +8,7 @@ svg {
 }
 
 .axis, .axis text, text {
-  font: 15px sans-serif;
+  font: 15px arial;
   fill: #666;
   color: #666;
 }
