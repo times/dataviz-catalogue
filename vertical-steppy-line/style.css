@@ -1,12 +1,10 @@
-body {
-  background-color: #f9f8f3;
-}
 svg {
   margin: 0 auto;
   padding: 25px;
-  padding-bottom: 90px;
-  padding-right: 50px;
+  padding-bottom: 110px;
+  padding-right: 110px;
   display: flex;
+  background-color: #f9f8f3;
 }
 
 .axis, .axis text, text {
