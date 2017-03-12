@@ -1,3 +1,8 @@
+/*
+ * Annotation layer
+ * DO uncomment further below
+ *    draggable(true)
+ */
 var annotations = [{
     "Fee": "50",
     "Age": "25",
@@ -26,35 +31,48 @@ var margin = {top: 20, right: 40, bottom: 50, left: 60},
     height = config.height - margin.top - margin.bottom;
 
 // Clean up before drawing
+// By brutally emptying all HTML from plot container div
 d3.select("#times-scatterplot").html("");
 
 var svg = d3.select("#times-scatterplot")
             .attr("width", config.width)
-            .attr("height", config.height)
+            .attr("height", config.height);
 
-// Scales
+/*
+ * Scales
+ * Both scales run full height and full width
+ * and are linear
+ * More about scales: https://github.com/d3/d3/blob/master/API.md#scales-d3-scale
+ */
 var x = d3.scaleLinear().range([0, width]);
 var y = d3.scaleLinear().range([height, 0]);
 
-// g is our container
+// g is our main container
 var g = svg.append("g")
            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 d3.json("data.json", function(err, dataset) {
+
+  /*
+   * Constrain variables to numbers
+   */
   dataset.forEach(function(d) {
     d.Age = +d.Age;
     d.Fee = +d.Fee;
   });
 
-  // d3.extent should return a [min,max] array
+  /*
+   * d3.extent should return a [min,max] array
+   * We're hard-coding the y-axis extent in this case
+   */
   var xExtent = d3.extent(dataset, function(d) { return d.Age; });
   //var yExtent = d3.extent(dataset, function(d) { return d.Fee; });
   var yExtent = d3.extent([0,65]);
+
   x.domain(xExtent);
   y.domain(yExtent);
 
   // X-axis
-  // do not render by avoid calling it
   g.append("g")
     .attr("class", "axis axis--x")
     .attr("transform", "translate(0," + height + ")")
@@ -113,6 +131,7 @@ d3.json("data.json", function(err, dataset) {
     .call(swoopy);
 
   // SVG arrow marker fix
+  // Do not change
   svg.append("marker")
     .attr("id", "arrow")
     .attr("viewBox", "-10 -10 20 20")
