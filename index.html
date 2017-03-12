@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background: #fff;
+    }
+    #container {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 2em;
+    }
+    img {
+      border-radius: 4px;
+      padding: 2px;
+    }
+    .item {
+      display: flex;
+      flex-direction: column;
+      padding: 1em;
+    }
+    #instructions {
+      border-top: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h1>Times Visual Vocabulary</h1>
+  <div id="container"></div>
+  <div id="instructions">
+    <h2>Instructions</h2>
+    <p>
+      Select one of the charts above to go to its demo page.
+    </p>
+    <p>
+      All the code necessary to render the charts stand-alone is in the corresponding folder.
+    </p>
+    <p>
+    Install the <a href="http://nytimes.github.io/svg-crowbar/">SVG Crowbar</a> to download the chart as an SVG. This SVG file can be opened in Adobe Illustrator or sent to the Graphics desk.
+    </p>
+    <p>
+      <em>You install the Crowbar by dragging the bookmarklet on the page to your bookmark bar.</em>
+      <em>Then open one of the charts and click on the bookmarklet to download.</em>
+    </p>
+    <p>
+    You can modify the code and tweak the chart by playing with the files themselves. You can also copy-paste the code to a <a href="http://blockbuilder.org/">BlockBuilder</a> to generate a chart you can then download.
+    </p>
+  </div>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script>
+    d3.json("index.json", function(error, imgs) {
+
+      var body = d3.select("#container")
+      var divs = body.selectAll("div")
+        .data(imgs).enter()
+        .append("div")
+        .attr("class", "item")
+      
+      var links = divs.append("a")
+        .attr("href", function(d) { return d.url; })
+        .append("img")
+        .style("height", "200px")
+        .attr("src", function(d) { return d.img; }) 
+        .on("mouseover", function() {
+          d3.select(this)
+            .transition().duration(200)
+            .style("height", "210px")
+        })
+        .on("mouseout", function() {
+          d3.select(this)
+            .transition().duration(200)
+            .style("height", "200px")
+        })
+
+      divs.append("h3")
+          .text(function(d) { return d.title; })
+
+      divs.on("mouseover", function() {
+        d3.select(this)
+          .transition().duration(200)
+        .style("background-color", "#eee")
+      })
+      divs.on("mouseout", function() {
+        d3.select(this)
+          .transition().duration(200)
+        .style("background-color", "#fff")
+      })
+
+    });
+  </script>
+</body>
