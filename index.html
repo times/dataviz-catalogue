@@ -46,7 +46,7 @@
     You can modify the code and tweak the chart by playing with the files themselves. You can also copy-paste the code to a <a href="http://blockbuilder.org/">BlockBuilder</a> to generate a chart you can then download.
     </p>
   </div>
-  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://unpkg.com/d3"></script>
   <script>
     d3.json("index.json", function(error, imgs) {
 
@@ -60,17 +60,7 @@
         .attr("href", function(d) { return d.url; })
         .append("img")
         .style("height", "200px")
-        .attr("src", function(d) { return d.img; }) 
-        .on("mouseover", function() {
-          d3.select(this)
-            .transition().duration(200)
-            .style("height", "210px")
-        })
-        .on("mouseout", function() {
-          d3.select(this)
-            .transition().duration(200)
-            .style("height", "200px")
-        })
+        .attr("src", function(d) { return d.img; });
 
       divs.append("h3")
           .text(function(d) { return d.title; })
