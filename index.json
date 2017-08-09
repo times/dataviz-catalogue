@@ -5,12 +5,12 @@
     "url" : "scatterplot/"
   },
   {
-    "title": "Treemap",
+    "title": "Treemap (d3)",
     "img": "https://github.com/basilesimon/times-visual-vocabulary/blob/master/treemap/1.png?raw=true",
     "url" : "treemap/"
   },
   {
-    "title": "Vertical line",
+    "title": "Vertical steppy line (d3)",
     "img": "https://github.com/basilesimon/times-visual-vocabulary/blob/master/vertical-steppy-line/1.png?raw=true",
     "url" : "vertical-steppy-line/"
   }
