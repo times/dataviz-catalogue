@@ -1,0 +1,31 @@
+.container {
+    margin: 0 auto;
+    padding: 25px;
+    background-color: #f7f8f1;
+    width: 600px;
+    height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+}
+text {
+    font: 10px sans-serif;
+}
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000000;
+    shape-rendering: crispEdges;
+}
+.axis {
+    color: lightgrey;
+    opacity: .5
+}
+.line {
+    fill: none;
+    stroke: #000000;
+    stroke-width: 2;
+}
+.area {
+    fill: #254251;
+    opacity:.2;
+}
