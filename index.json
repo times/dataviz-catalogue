@@ -1,17 +1,22 @@
 [
   {
     "title": "Scatterplot (d3 + R)",
-    "img": "https://github.com/basilesimon/times-visual-vocabulary/blob/master/scatterplot/1.png?raw=true",
+    "img": "scatterplot/1.png",
     "url" : "scatterplot/"
   },
   {
     "title": "Treemap (d3)",
-    "img": "https://github.com/basilesimon/times-visual-vocabulary/blob/master/treemap/1.png?raw=true",
+    "img": "treemap/1.png",
     "url" : "treemap/"
   },
   {
     "title": "Vertical steppy line (d3)",
-    "img": "https://github.com/basilesimon/times-visual-vocabulary/blob/master/vertical-steppy-line/1.png?raw=true",
+    "img": "vertical-steppy-line/1.png",
     "url" : "vertical-steppy-line/"
+  },
+  {
+    "title": "Small multiples (d3)",
+    "img": "small-multiples/1.png",
+    "url" : "small-multiples/"
   }
 ]
