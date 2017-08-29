@@ -18,9 +18,12 @@ d3.json('index.json', function(error, imgs) {
       return d.img;
     });
 
-  divs.append('h3').text(function(d) {
-    return d.title;
-  });
+  divs
+    .append('h3')
+    .text(function(d) {
+      return d.title;
+    })
+    .attr('class', 'Item-headline Headline--s');
 
   divs.on('mouseover', function() {
     d3
