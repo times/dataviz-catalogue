@@ -5,7 +5,7 @@ library(readr)
 # Load CSV file containing data
 # Note: the path to the file must be correct!
 # It can be a local file or a URL
-data <- read_csv("~/Github/times-visual-vocabulary/scatterplot/data.csv")
+data <- read_csv("../data.csv")
 
 # Replace Age and Fee in the example by the variables you want
 # on x and y in your plot

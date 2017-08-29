@@ -24,7 +24,6 @@ var chart = timeSeriesChart()
   .values(function(d) {
     return d.values;
   })
-  //.title(d => d.key)
   .margin({ top: 20, right: 20, bottom: 20, left: 10 });
 
 chart.xExtent(d3.extent(dataset, chart.x()));
