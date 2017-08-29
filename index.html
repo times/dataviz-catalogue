@@ -1,128 +1,109 @@
 <!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8">
-    <link rel="stylehseet" href="https://www.thetimes.co.uk/d/styles/main.min-1de427e813.css">
-    <style>
-     @font-face {
-         font-family: "GillSans-Medium";
-         src: url(https://www.thetimes.co.uk/fonts/GillSansW01-Medium.woff2) format("woff2"), url(https://www.thetimes.co.uk/fonts/GillSansW01-Medium.woff) format("woff"), url(../fonts/GillSansMTStd-Medium.ttf) format("truetype");
-         font-weight: normal;
-         font-style: normal; }
-     @font-face {
-         font-family: "TimesDigital-Regular";
-         src: url(https://www.thetimes.co.uk/fonts/TimesDigital-Regular.woff)format("woff");
-             font-weight: normal;
-             font-style: normal; }
-             
-             body {
-                 background: #fff;
-                 margin: 2em;
-             }
-             .wrapper {
-                 width: 100%;
-             }
-             @media screen and (min-width: 920px) {
-                 .wrapper {
-                     width: 920px;
-                     margin: 0 auto;
-                 }
-             }
-             p {
-                 font-family: TimesDigital-Regular;
-             }
-             .Headline {
-                 color: #1D1D1B;
-                 margin-top: .5em;
-                 padding-top: .3em;
-                 font-family: TimesModern-Bold;
-                 font-size: 2.8em;
-                 border-top: .2em solid #1D1D1B;
-                 width: 100%;
-             }
-             #container {
-                 width: 100%;
-                 display: flex;
-                 flex-direction: row;
-                 flex-wrap: wrap;
-                 margin-bottom: 2em;
-                 background-color: #F8F7F1;
-             }
-             img {
-                 border-radius: 4px;
-             }
-             .item {
-                 display: flex;
-                 flex-direction: column;
-                 padding: 1em;
-             }
-             .section {
-                 border-top: 1px solid #ddd;
-             }
-             .Byline {
-                 font-family: GillSans-Medium;
-                 color: #696969;
-                 -webkit-font-smoothing: antialiased;
-             }
-    </style>
+  <meta charset="utf-8">
+  <link rel="stylehseet" href="https://www.thetimes.co.uk/d/styles/main.min-1de427e813.css">
+  <link rel="stylehseet" href="https://www.thetimes.co.uk/fonts/GillSansW01-Medium">
+  <link rel="stylehseet" href="https://www.thetimes.co.uk/fonts/imesDigital-Regular">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <title>The Times: Visual Vocabulary</title>
+
+  <style>
+    body {
+      background: #fff;
+      margin: 2em;
+    }
+
+    .wrapper {
+      width: 100%;
+    }
+
+    @media screen and (min-width: 920px) {
+      .wrapper {
+        width: 920px;
+        margin: 0 auto;
+      }
+    }
+
+    p {
+      font-family: "TimesDigital-Regular";
+    }
+
+    .Headline {
+      color: #1D1D1B;
+      margin-top: .5em;
+      padding-top: .3em;
+      font-family: "TimesModern-Bold";
+      font-size: 2.8em;
+      border-top: .2em solid #1D1D1B;
+      width: 100%;
+    }
+
+    #container {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin-bottom: 2em;
+      background-color: #F8F7F1;
+    }
+
+    img {
+      border-radius: 4px;
+    }
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      padding: 1em;
+    }
+
+    .section {
+      border-top: 1px solid #ddd;
+    }
+
+    .Byline {
+      font-family: "GillSans-Medium";
+      color: #696969;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
 </head>
 <body>
-    <div class="wrapper">
-        
-        <h1 class="Headline">Times Visual Vocabulary</h1>
-        <div id="container"></div>
-        <div class="section">
-            <h2>Instructions</h2>
-            <p>
-                Select one of the charts above to go to its demo page.
-            </p>
-            <p>
-                All the code necessary to render the charts stand-alone is in the corresponding folder.
-            </p>
-            <p>
-                Install the <a href="http://nytimes.github.io/svg-crowbar/">SVG Crowbar</a> to download the chart as an SVG. This SVG file can be opened in Adobe Illustrator or sent to the Graphics desk.
-            </p>
-            <p>
-                <em>You install the Crowbar by dragging the bookmarklet on the page to your bookmark bar.</em>
-                <em>Then open one of the charts and click on the bookmarklet to download.</em>
-            </p>
-            <p>
-                You can modify the code and tweak the chart by playing with the files themselves. You can also copy-paste the code to a <a href="http://blockbuilder.org/">BlockBuilder</a> to generate a chart you can then download.
-            </p>
-        </div>
-        <div class="section">
-            <div class="Byline">By Basile Simon, Times Digital Design team</div>
-        </div>
+  <div class="wrapper">
+    <h1 class="Headline">Times Visual Vocabulary</h1>
+
+    <div id="container"></div>
+
+    <div class="section">
+      <h2>Instructions</h2>
+      <p>
+          Select one of the charts above to go to its demo page.
+      </p>
+      <p>
+          All the code necessary to render the charts stand-alone is in the corresponding folder.
+      </p>
+      <p>
+          Install the <a href="http://nytimes.github.io/svg-crowbar/">SVG Crowbar</a> to download the chart as an SVG. This SVG file can be opened in Adobe Illustrator or sent to the Graphics desk.
+      </p>
+      <p>
+          <em>You install the Crowbar by dragging the bookmarklet on the page to your bookmark bar.</em>
+          <em>Then open one of the charts and click on the bookmarklet to download.</em>
+      </p>
+      <p>
+          You can modify the code and tweak the chart by playing with the files themselves. You can also copy-paste the code to a <a href="http://blockbuilder.org/">BlockBuilder</a> to generate a chart you can then download.
+      </p>
     </div>
+
+    <div class="section">
+      <div class="Byline">By Basile Simon, Times Digital Design team</div>
+    </div>
+
+  </div>
+
   <script src="https://unpkg.com/d3"></script>
-  <script>
-    d3.json("index.json", function(error, imgs) {
-
-      var body = d3.select("#container")
-      var divs = body.selectAll("div")
-        .data(imgs).enter()
-        .append("div")
-        .attr("class", "item")
-      
-      var links = divs.append("a")
-        .attr("href", function(d) { return d.url; })
-        .append("img")
-        .style("height", "200px")
-        .attr("src", function(d) { return d.img; });
-
-      divs.append("h3")
-          .text(function(d) { return d.title; })
-
-      divs.on("mouseover", function() {
-        d3.select(this)
-          .transition().duration(200)
-        .style("background-color", "#fff")
-      })
-      divs.on("mouseout", function() {
-        d3.select(this)
-          .transition().duration(200)
-        .style("background-color", "#F8F7F1")
-      })
-
-    });
-  </script>
+  <script type="text/javascript" src="app.js"></script>
 </body>
+</html>
