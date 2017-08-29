@@ -62,9 +62,13 @@
       width: 100%;
     }
 
+    .Headline iframe {
+      float: right;
+    }
+
     .Dip {
       margin-top: 0;
-      margin-bottom: 2em;
+      margin-bottom: 1em;
     }
 
     .Article-content p {
@@ -106,8 +110,13 @@
 </head>
 <body>
   <div class="wrapper">
-    <h1 class="Headline">The Times Visual Vocabulary</h1>
-    <p class="Dip">A public resource of dataviz code and designs</p>
+    <h1 class="Headline">
+      The Times Visual Vocabulary
+      <a class="github-button" href="https://github.com/times/visual-vocabulary" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star times/visual-vocabulary on GitHub">Star</a>
+    </h1>
+    <p class="Dip">
+      A public resource of dataviz code and designs
+    </p>
 
     <div id="container"></div>
 
@@ -140,6 +149,7 @@
 
   </div>
 
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
   <script src="https://unpkg.com/d3"></script>
   <script type="text/javascript" src="app.js"></script>
 </body>
