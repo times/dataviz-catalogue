@@ -1,8 +1,9 @@
 # Times Visual Vocabulary
 
-* [Vertical steppy line](https://github.com/basilesimon/times-visual-vocabulary/tree/master/vertical-steppy-line)
-* [Scatterplot](https://github.com/basilesimon/times-visual-vocabulary/tree/master/scatterplot)
-* [Treemap](https://github.com/basilesimon/times-visual-vocabulary/tree/master/treemap)
+* [Vertical steppy line](https://github.com/times/visual-vocabulary/tree/master/vertical-steppy-line)
+* [Scatterplot](https://github.com/times/visual-vocabulary/tree/master/scatterplot)
+* [Treemap](https://github.com/times/visual-vocabulary/tree/master/treemap)
+* [Small multiples](https://github.com/times/visual-vocabulary/tree/master/small-multiples)
 
 ## Instructions
 
