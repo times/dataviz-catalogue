@@ -18,5 +18,11 @@
     "title": "Small multiples (d3)",
     "img": "small-multiples/1.png",
     "url" : "small-multiples/"
+  },
+    {
+    "title": "Hemicycle (d3)",
+    "img": "hemicycle/1.png",
+    "url" : "hemicycle/"
   }
+
 ]
