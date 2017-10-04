@@ -19,10 +19,15 @@
     "img": "small-multiples/1.png",
     "url" : "small-multiples/"
   },
-    {
+  {
     "title": "Hemicycle (d3)",
     "img": "hemicycle/1.png",
     "url" : "hemicycle/"
+  },
+  {
+    "title": "Timelines bubbles (d3)",
+    "img": "timeline-bubbles/1.png",
+    "url" : "timeline-bubbles/"
   }
 
 ]
