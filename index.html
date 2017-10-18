@@ -1,158 +1,159 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="https://www.thetimes.co.uk/d/styles/main.min-1de427e813.css">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://www.thetimes.co.uk/d/styles/main.min-1de427e813.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="favicon.png">
 
-  <link rel="icon" type="image/png" href="favicon.png">
+        <title>The Times | data viz catalogue</title>
 
-  <title>The Times | data viz catalogue</title>
+        <style>
+         @font-face {
+             font-family: "GillSans-Medium";
+             src: url(https://fonts.timesdev.tools/fonts/GillSansW01-Medium.woff2) format("woff2"),
+             url(https://fonts.timesdev.tools/fonts/GillSansW01-Medium.woff) format("woff");
+             font-weight: normal;
+             font-style: normal;
+         }
 
-  <style>
-    @font-face {
-      font-family: "GillSans-Medium";
-      src: url(https://fonts.timesdev.tools/fonts/GillSansW01-Medium.woff2) format("woff2"),
-          url(https://fonts.timesdev.tools/fonts/GillSansW01-Medium.woff) format("woff");
-      font-weight: normal;
-      font-style: normal;
-    }
+         @font-face {
+             font-family: "TimesDigital-Regular";
+             src: url(https://fonts.timesdev.tools/fonts/TimesDigital-Regular.woff) format("woff");
+             font-weight: normal;
+             font-style: normal;
+         }
 
-    @font-face {
-      font-family: "TimesDigital-Regular";
-      src: url(https://fonts.timesdev.tools/fonts/TimesDigital-Regular.woff) format("woff");
-      font-weight: normal;
-      font-style: normal;
-    }
+         @font-face {
+             font-family: "TimesModern-Bold";
+             src: url(https://fonts.timesdev.tools/fonts/TimesModern-Bold.woff) format("woff");
+             font-weight: normal;
+             font-style: normal;
+         }
 
-    @font-face {
-      font-family: "TimesModern-Bold";
-      src: url(https://fonts.timesdev.tools/fonts/TimesModern-Bold.woff) format("woff");
-      font-weight: normal;
-      font-style: normal;
-    }
+         body {
+             background: #fff;
+             margin: 2em;
+         }
 
-    body {
-      background: #fff;
-      margin: 2em;
-    }
+         .wrapper {
+             width: 100%;
+         }
 
-    .wrapper {
-      width: 100%;
-    }
+         @media screen and (min-width: 920px) {
+             .wrapper {
+                 width: 920px;
+                 margin: 0 auto;
+             }
+         }
 
-    @media screen and (min-width: 920px) {
-      .wrapper {
-        width: 920px;
-        margin: 0 auto;
-      }
-    }
+         p {
+             font-family: "TimesDigital-Regular";
+         }
 
-    p {
-      font-family: "TimesDigital-Regular";
-    }
+         .Headline {
+             color: #1D1D1B;
+             margin-top: .5em;
+             margin-bottom: 0;
+             padding-top: .3em;
+             font-family: "TimesModern-Bold";
+             font-size: 2.6em;
+             border-top: .2em solid #1D1D1B;
+             width: 100%;
+             display: flex;
+         }
 
-    .Headline {
-      color: #1D1D1B;
-      margin-top: .5em;
-      margin-bottom: 0;
-      padding-top: .3em;
-      font-family: "TimesModern-Bold";
-      font-size: 2.6em;
-      border-top: .2em solid #1D1D1B;
-      width: 100%;
-      display: flex;
-    }
+         .Headline iframe {
+             margin-right: 0;
+             margin-left: auto;
+         }
 
-    .Headline iframe {
-      margin-right: 0;
-      margin-left: auto;
-    }
+         .Dip {
+             margin-top: 0;
+             margin-bottom: 1em;
+         }
 
-    .Dip {
-      margin-top: 0;
-      margin-bottom: 1em;
-    }
+         .Article-content p {
+             font-size: 1.4rem;
+             margin-bottom: 1rem;
+             line-height: 2rem;
+         }
 
-    .Article-content p {
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-      line-height: 2rem;
-    }
+         #container {
+             width: 100%;
+             display: flex;
+             flex-direction: row;
+             flex-wrap: wrap;
+             margin-bottom: 2em;
+             background-color: #F8F7F1;
+         }
 
-    #container {
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      margin-bottom: 2em;
-      background-color: #F8F7F1;
-    }
+         img {
+             border-radius: 4px;
+         }
 
-    img {
-      border-radius: 4px;
-    }
+         .item {
+             display: flex;
+             flex-direction: column;
+             padding: 1em;
+         }
 
-    .item {
-      display: flex;
-      flex-direction: column;
-      padding: 1em;
-    }
+         .section {
+             border-top: 1px solid #ddd;
+             padding-top: 1em;
+         }
 
-    .section {
-      border-top: 1px solid #ddd;
-      padding-top: 1em;
-    }
-
-    .Byline {
-      font-family: "GillSans-Medium";
-      color: #696969;
-      -webkit-font-smoothing: antialiased;
-    }
-  </style>
-</head>
-<body>
-  <div class="wrapper">
-    <h1 class="Headline">
-      The Times data viz catalogue
-        <a class="github-button" href="https://github.com/times/dataviz-catalogue" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star times/dataviz-catalogue on GitHub">Star</a>
-    </h1>
-    <p class="Dip">
-        A public resource of data viz code and designs
-    </p>
-
-    <div id="container"></div>
-
-    <div class="section">
-        <h2 class="Item-headline">Instructions</h2>
-
-        <div class="Article-content">
-            <p>
-                Select one of the charts above to go to its demo page.
+         .Byline {
+             font-family: "GillSans-Medium";
+             color: #696969;
+             -webkit-font-smoothing: antialiased;
+         }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <img src="./dual-masthead.svg" width="250" />
+            <h1 class="Headline">
+                Data visualisation catalogue
+                <a class="github-button" href="https://github.com/times/dataviz-catalogue" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star times/dataviz-catalogue on GitHub">Star</a>
+            </h1>
+            <p class="Dip">
+                A public resource of data viz code and designs
             </p>
-            <p>
-                All the code necessary to render the charts stand-alone is in the corresponding folder.
-            </p>
-            <p>
-                Install the <a href="http://nytimes.github.io/svg-crowbar/">SVG Crowbar</a> to download the chart as an SVG. This SVG file can be opened in Adobe Illustrator or sent to the Graphics desk.
-            </p>
-            <p>
-                <em>You install the Crowbar by dragging the bookmarklet on the page to your bookmark bar.</em>
-                <em>Then open one of the charts and click on the bookmarklet to download.</em>
-            </p>
-            <p>
-                You can modify the code and tweak the chart by playing with the files themselves. You can also copy-paste the code to a <a href="http://blockbuilder.org/">BlockBuilder</a> to generate a chart you can then download.
-            </p>
+
+            <div id="container"></div>
+
+            <div class="section">
+                <h2 class="Item-headline">Instructions</h2>
+
+                <div class="Article-content">
+                    <p>
+                        Select one of the charts above to go to its demo page.
+                    </p>
+                    <p>
+                        All the code necessary to render the charts stand-alone is in the corresponding folder.
+                    </p>
+                    <p>
+                        Install the <a href="http://nytimes.github.io/svg-crowbar/">SVG Crowbar</a> to download the chart as an SVG. This SVG file can be opened in Adobe Illustrator or sent to the Graphics desk.
+                    </p>
+                    <p>
+                        <em>You install the Crowbar by dragging the bookmarklet on the page to your bookmark bar.</em>
+                        <em>Then open one of the charts and click on the bookmarklet to download.</em>
+                    </p>
+                    <p>
+                        You can modify the code and tweak the chart by playing with the files themselves. You can also copy-paste the code to a <a href="http://blockbuilder.org/">BlockBuilder</a> to generate a chart you can then download.
+                    </p>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="Byline">By Basile Simon, Times Digital team</div>
+            </div>
+
         </div>
-    </div>
 
-    <div class="section">
-        <div class="Byline">By Basile Simon, Times Digital Design team</div>
-    </div>
-
-  </div>
-
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <script src="https://unpkg.com/d3"></script>
-  <script type="text/javascript" src="app.js"></script>
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+        <script src="https://unpkg.com/d3"></script>
+        <script type="text/javascript" src="app.js"></script>
 </body>
 </html>
