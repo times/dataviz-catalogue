@@ -28,10 +28,5 @@
     "title": "Timelines bubbles (d3)",
     "img": "timeline-bubbles/1.png",
     "url" : "timeline-bubbles/"
-  },
-  {
-    "title": "Waffle chart (d3)",
-    "img": "waffle/1.png",
-    "url" : "waffle/"
   }
 ]
