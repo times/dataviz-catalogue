@@ -10,9 +10,9 @@
     "url" : "treemap/"
   },
   {
-    "title": "Vertical steppy line (d3)",
-    "img": "vertical-steppy-line/1.png",
-    "url" : "vertical-steppy-line/"
+    "title": "Vertical stepped line (d3)",
+    "img": "vertical-stepped-line/1.png",
+    "url" : "vertical-stepped-line/"
   },
   {
     "title": "Small multiples (d3)",
