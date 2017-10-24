@@ -1,0 +1,123 @@
+@font-face {
+    font-family: "GillSans-Medium";
+    src: url(https://fonts.timesdev.tools/fonts/GillSansW01-Medium.woff2) format("woff2"),
+    url(https://fonts.timesdev.tools/fonts/GillSansW01-Medium.woff) format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "TimesDigital-Regular";
+    src: url(https://fonts.timesdev.tools/fonts/TimesDigital-Regular.woff) format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "TimesModern-Bold";
+    src: url(https://fonts.timesdev.tools/fonts/TimesModern-Bold.woff) format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background: #fff;
+    display: flex;
+    flex-direction: row;
+}
+
+.sidebar {
+    width: 30%;
+    background-color: #225BA0;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5rem;
+}
+.wrapper {
+    width: 70%;
+}
+.sidebar, .wrapper {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 5rem;
+}
+
+@media screen and (max-width: 767px) {
+    body {
+        flex-direction: column;
+    }
+    .sidebar, .wrapper {
+        width: 100%;
+    }
+}
+
+p {
+    font-family: "TimesDigital-Regular";
+}
+
+.Headline {
+    color: #1D1D1B;
+    margin-bottom: 0;
+    font-family: "TimesModern-Bold";
+    font-size: 2.6em;
+    width: 100%;
+    display: flex;
+}
+
+.Headline iframe {
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.Dip {
+    margin-top: 0;
+    margin-bottom: 1em;
+    font-size: 1.4em;
+}
+
+.Article-content p {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    line-height: 2rem;
+}
+
+#container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 2em;
+    background-color: #F8F7F1;
+}
+
+img {
+    border-radius: 4px;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+
+.section {
+    border-top: 1px solid #ddd;
+    padding-top: 1em;
+}
+
+.Byline {
+    font-family: "TimesModern-Regular";
+    font-size: 1.3em;
+    line-height: 1.1em;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    margin-top: 40em;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #dbdbdb;
+    padding-top: .5em;
+}
+.team {
+    font-family: "GillSansMTStd-Medium";
+    font-size: .8em;
+}

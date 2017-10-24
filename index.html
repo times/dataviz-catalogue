@@ -8,111 +8,15 @@
 
         <title>The Times | data viz catalogue</title>
 
-        <style>
-         @font-face {
-             font-family: "GillSans-Medium";
-             src: url(https://fonts.timesdev.tools/fonts/GillSansW01-Medium.woff2) format("woff2"),
-             url(https://fonts.timesdev.tools/fonts/GillSansW01-Medium.woff) format("woff");
-             font-weight: normal;
-             font-style: normal;
-         }
-
-         @font-face {
-             font-family: "TimesDigital-Regular";
-             src: url(https://fonts.timesdev.tools/fonts/TimesDigital-Regular.woff) format("woff");
-             font-weight: normal;
-             font-style: normal;
-         }
-
-         @font-face {
-             font-family: "TimesModern-Bold";
-             src: url(https://fonts.timesdev.tools/fonts/TimesModern-Bold.woff) format("woff");
-             font-weight: normal;
-             font-style: normal;
-         }
-
-         body {
-             background: #fff;
-             margin: 2em;
-         }
-
-         .wrapper {
-             width: 100%;
-         }
-
-         @media screen and (min-width: 920px) {
-             .wrapper {
-                 width: 920px;
-                 margin: 0 auto;
-             }
-         }
-
-         p {
-             font-family: "TimesDigital-Regular";
-         }
-
-         .Headline {
-             color: #1D1D1B;
-             margin-top: .5em;
-             margin-bottom: 0;
-             padding-top: .3em;
-             font-family: "TimesModern-Bold";
-             font-size: 2.6em;
-             border-top: .2em solid #1D1D1B;
-             width: 100%;
-             display: flex;
-         }
-
-         .Headline iframe {
-             margin-right: 0;
-             margin-left: auto;
-         }
-
-         .Dip {
-             margin-top: 0;
-             margin-bottom: 1em;
-         }
-
-         .Article-content p {
-             font-size: 1.4rem;
-             margin-bottom: 1rem;
-             line-height: 2rem;
-         }
-
-         #container {
-             width: 100%;
-             display: flex;
-             flex-direction: row;
-             flex-wrap: wrap;
-             margin-bottom: 2em;
-             background-color: #F8F7F1;
-         }
-
-         img {
-             border-radius: 4px;
-         }
-
-         .item {
-             display: flex;
-             flex-direction: column;
-             padding: 1em;
-         }
-
-         .section {
-             border-top: 1px solid #ddd;
-             padding-top: 1em;
-         }
-
-         .Byline {
-             font-family: "GillSans-Medium";
-             color: #696969;
-             -webkit-font-smoothing: antialiased;
-         }
-        </style>
+        <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
-        <div class="wrapper">
+        <div class="sidebar">
             <img src="./dual-masthead.svg" width="250" />
+            <div class="Byline">Created by Basile Simon
+                <span class="team">Times Digital team</span></div>
+        </div>
+        <div class="wrapper">
             <h1 class="Headline">
                 Data visualisation catalogue
                 <a class="github-button" href="https://github.com/times/dataviz-catalogue" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star times/dataviz-catalogue on GitHub">Star</a>
@@ -146,9 +50,6 @@
                 </div>
             </div>
 
-            <div class="section">
-                <div class="Byline">By Basile Simon, Times Digital team</div>
-            </div>
 
         </div>
 
