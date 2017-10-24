@@ -3,7 +3,7 @@ var annotations = [
     value: -100,
     year: '2013/01',
     path: 'M93,-26L93,36',
-    text: 'Arsenal buys Alexis Sánchez',
+    text: 'Arsenal buy Alexis Sánchez',
     textOffset: [-25, -35],
   },
 ];
