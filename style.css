@@ -49,6 +49,11 @@ body {
     .sidebar, .wrapper {
         width: 100%;
     }
+    .wrapper {
+        padding-right: 1em;
+        padding-left: 1em;
+        padding-top: 2em;
+    }
 }
 
 p {
@@ -66,6 +71,7 @@ p {
     align-items: center;
 }
 
+
 .Headline iframe {
     margin-right: 0;
     margin-left: auto;
@@ -77,6 +83,20 @@ p {
     margin-top: 0;
     margin-bottom: 1em;
     font-size: 1.4em;
+}
+
+@media screen and (max-width: 767px) {
+    .Headline {
+        font-size: 2em;
+        line-height: 1em;
+        margin-bottom: .2em;
+    }
+    .Headline iframe {
+        display: none;
+    }
+    .Dip {
+        font-size: 1.2em;
+    }
 }
 
 .Article-content p {
@@ -139,4 +159,10 @@ img {
     font-family: "GillSansMTStd-Medium";
     font-size: .8em;
     font-weight: 300;
+}
+
+@media screen and (max-width: 767px) {
+    .Byline {
+        display: none;
+    }
 }
