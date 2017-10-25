@@ -27,18 +27,18 @@ body {
 }
 
 .sidebar {
-    width: 30%;
+    width: 25%;
     background-color: #225BA0;
     display: flex;
     flex-direction: column;
     padding-bottom: 5rem;
 }
 .wrapper {
-    width: 70%;
+    width: 75%;
 }
 .sidebar, .wrapper {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
     padding-top: 5rem;
 }
 
@@ -56,12 +56,14 @@ p {
 }
 
 .Headline {
-    color: #1D1D1B;
+    color: #000;
     margin-bottom: 0;
     font-family: "TimesModern-Bold";
-    font-size: 2.6em;
+    font-size: 3.3em;
+    line-height: 1.33;
     width: 100%;
     display: flex;
+    align-items: center;
 }
 
 .Headline iframe {
@@ -70,6 +72,8 @@ p {
 }
 
 .Dip {
+    font-size: 1.8em;
+    font-family: "TimesModern-Regular";
     margin-top: 0;
     margin-bottom: 1em;
     font-size: 1.4em;
@@ -87,18 +91,30 @@ p {
     flex-direction: row;
     flex-wrap: wrap;
     margin-bottom: 2em;
-    background-color: #F8F7F1;
+    margin-top: 3em;
 }
 
 img {
     border-radius: 4px;
+    margin: 0 auto;
+    margin-top: 1em;
 }
 
 .item {
     display: flex;
     flex-direction: column;
     padding: 1em;
+    margin-bottom: 1em;
+    margin-right: 1em;
+    background-color: #F8F7F1;
+    width: 300px;
 }
+
+.chartTitle {
+    font-family: "GillSansMTStd-Medium";
+    font-size: 1em;
+}
+
 
 .section {
     border-top: 1px solid #ddd;
@@ -107,17 +123,20 @@ img {
 
 .Byline {
     font-family: "TimesModern-Regular";
-    font-size: 1.3em;
+    font-size: 1.4em;
     line-height: 1.1em;
     color: #fff;
     -webkit-font-smoothing: antialiased;
-    margin-top: 40em;
     display: flex;
     flex-direction: column;
     border-top: 1px solid #dbdbdb;
     padding-top: .5em;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 70%;
 }
 .team {
     font-family: "GillSansMTStd-Medium";
     font-size: .8em;
+    font-weight: 300;
 }
