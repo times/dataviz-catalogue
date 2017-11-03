@@ -1,5 +1,8 @@
-var dataset = [];
-var labels = ['rock', 'pop', 'electro', 'world', 'folk', 'hip hop'];
+/*
+ * Sample dataset
+ */
+const dataset = [];
+const labels = ['rock', 'pop', 'electro', 'world', 'folk', 'hip hop'];
 labels.map(function(symbol) {
   for (var i = 2008; i < 2017; i++) {
     dataset.push({
@@ -10,30 +13,19 @@ labels.map(function(symbol) {
   }
 });
 
-var parseDate = d3.timeParse('%Y');
+const parseDate = d3.timeParse('%Y');
 
-var chart = timeSeriesChart()
-  .x(function(d) {
-    return parseDate(d.date);
-  })
-  .y(function(d) {
-    return +d.price;
-  })
+const chart = timeSeriesChart()
+  .x(d => parseDate(d.date))
+  .y(d => +d.price)
   .width(200)
   .height(100)
-  .values(function(d) {
-    return d.values;
-  })
+  .values(d => d.values)
   .margin({ top: 20, right: 20, bottom: 20, left: 10 });
 
 chart.xExtent(d3.extent(dataset, chart.x()));
 
-var symbols = d3
-  .nest()
-  .key(function(d) {
-    return d.symbol;
-  })
-  .entries(dataset);
+var symbols = d3.nest().key(d => d.symbol).entries(dataset);
 
 d3
   .select('.container')

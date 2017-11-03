@@ -1,4 +1,4 @@
-var annotations = [
+const annotations = [
   {
     value: -100,
     year: '2013/01',
@@ -9,101 +9,79 @@ var annotations = [
 ];
 
 // The config object passed by draw() gives us a width and height
-var config = { width: 600, height: 450 };
-var margin = { top: 30, right: 60, bottom: 50, left: 40 },
+const config = { width: 600, height: 450 };
+const margin = { top: 30, right: 60, bottom: 0, left: 40 },
   width = config.width - margin.left - margin.right,
   height = config.height - margin.top - margin.bottom;
 
 // Clean up SVG container before drawing
 d3.select('#times-vertical-line').html('');
 
-var svg = d3
-  .select('#times-vertical-line')
-  .attr('width', width)
-  .attr('height', height);
+const svg = d3.select('#times-vertical-line').at({
+  width: width,
+  height: height,
+});
 
 // Date parser
-var parseTime = d3.timeParse('%Y/%m');
+const parseTime = d3.timeParse('%Y/%m');
 
 // Scales
-var x = d3.scaleLinear().range([0, width]);
-var y = d3.scaleTime().range([height, 0]);
+const x = d3.scaleLinear().range([0, width]);
+const y = d3.scaleTime().range([height, 0]);
 
 // Line declaration
-var line = d3
+const line = d3
   .line()
-  .x(function(d) {
-    return x(d.value);
-  })
-  .y(function(d) {
-    return y(d.year);
-  })
+  .x(d => x(d.value))
+  .y(d => y(d.year))
   .curve(d3.curveStepAfter);
 
 // g is our container
-var g = svg
-  .append('g')
-  .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+const g = svg.append('g').translate([margin.left + 10, margin.top + 10]);
 
 d3.json('data.json', function(err, dataset) {
-  dataset.forEach(function(d) {
+  dataset.forEach(d => {
     d.year = parseTime(d.year);
     d.value = +d.value;
   });
 
   // Min, max values from dataset
   // or computed for each club
-  var hardCordedDomain = [-140, 140];
-  var clubDomain = [
-    d3.min(dataset, function(d) {
-      return d.value;
-    }),
-    d3.max(dataset, function(d) {
-      return d.value;
-    }),
+  const hardCordedDomain = [-140, 140];
+  const clubDomain = [
+    d3.min(dataset, d => d.value),
+    d3.max(dataset, d => d.value),
   ];
 
   // Set domains
   // Fixed values x-axis
   x.domain(hardCordedDomain);
-  y.domain(
-    d3
-      .extent(dataset, function(d) {
-        return d.year;
-      })
-      .reverse()
-  );
+  y.domain(d3.extent(dataset, d => d.year).reverse());
 
   // X-axis
   g
     .append('g')
-    .attr('class', 'axis axis--x')
-    .attr('transform', 'translate(30, ' + height + ' )')
+    .at({ class: 'axis axis--x' })
+    .translate([30, height])
     .call(d3.axisBottom(x).ticks(10).tickSize(-height, 0, 0).tickPadding(10));
 
   // text label for the x axis
   g
     .append('text')
-    .attr('class', 'label')
-    .attr('transform', 'translate(' + x(0) + ' ,' + (height + 50) + ')')
+    .at({ class: 'label' })
+    .translate([x(0), height + 50])
     .style('text-anchor', 'middle')
     .text('Season balance (£m)');
   g
     .append('text')
-    .attr('class', 'label')
-    .attr(
-      'transform',
-      'translate(' + (x(0) - 20) + ' ,' + (margin.top - 55) + ')'
-    )
+    .at({ class: 'label' })
+    .translate([x(0) - 20, margin.top - 55])
     .style('text-anchor', 'middle')
     .text('⟵ Spent');
   g
     .append('text')
-    .attr('class', 'label')
-    .attr(
-      'transform',
-      'translate(' + (x(0) + 85) + ' ,' + (margin.top - 55) + ')'
-    )
+    .at({ class: 'label' })
+    .translate([x(0) - 85, margin.top - 55])
     .style('text-anchor', 'middle')
     .text('Received ⟶');
 
@@ -114,31 +92,28 @@ d3.json('data.json', function(err, dataset) {
   // Created before the spending line so it"s under
   g
     .append('line')
-    .attr('class', 'zero')
-    .attr('x1', x(0))
-    .attr('y1', 0)
-    .attr('x2', x(0))
-    .attr('y2', height)
-    .style('stroke', '#666')
-    .attr('transform', 'translate(30,0)');
+    .at({
+      class: 'zero',
+      x1: x(0),
+      y1: 0,
+      x2: x(0),
+      y2: height,
+    })
+    .translate([30, 0])
+    .style('stroke', '#666');
 
   // Main spending line
   g
     .append('path')
     .datum(dataset)
-    .attr('class', 'line')
-    .attr('transform', 'translate(30,0)')
-    .attr('d', line);
+    .at({ class: 'line', d: line })
+    .translate([30, 0]);
 
   // Annotations
   var swoopy = d3
     .swoopyDrag()
-    .x(function(d) {
-      return x(d.value);
-    })
-    .y(function(d) {
-      return y(parseTime(d.year));
-    })
+    .x(d => x(d.value))
+    .y(d => y(parseTime(d.year)))
     //.draggable(true)
     .annotations(annotations);
 
