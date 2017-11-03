@@ -49,6 +49,10 @@ body {
     .sidebar, .wrapper {
         width: 100%;
     }
+    .sidebar {
+        padding-top: 0;
+        padding-bottom: 2rem;
+    }
     .wrapper {
         padding-right: 1em;
         padding-left: 1em;
@@ -87,7 +91,7 @@ p {
 
 @media screen and (max-width: 767px) {
     .Headline {
-        font-size: 2em;
+        font-size: 2.8em;
         line-height: 1em;
         margin-bottom: .2em;
     }
@@ -95,7 +99,7 @@ p {
         display: none;
     }
     .Dip {
-        font-size: 1.2em;
+        font-size: 1.1em;
     }
 }
 
