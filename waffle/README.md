@@ -18,11 +18,8 @@ In this example we pass an array of objects to store some properties, such as we
 
 ```
   [
-    { highlight: true },
-    { highlight: true },
-    { highlight: true },
-    { highlight: true },
-    { highlight: false},
+    { color: '#ddd' },
+    { color: 'blue'},
   ]
 ```
 
