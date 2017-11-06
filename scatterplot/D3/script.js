@@ -23,7 +23,7 @@ const annotations = [
 // set config object
 const config = { width: 600, height: 450 };
 
-const margin = { top: 20, right: 40, bottom: 50, left: 60 },
+const margin = { top: 20, right: 40, bottom: 80, left: 60 },
   width = config.width - margin.left - margin.right,
   height = config.height - margin.top - margin.bottom;
 
