@@ -1,20 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://www.thetimes.co.uk/d/styles/main.min-1de427e813.css">
+        <link rel="stylesheet" href="../page.css">
+        <link rel="stylesheet" href="https://fonts.timesdev.tools/fonts/GillSansW01-Medium.css" />
+        <link rel="stylesheet" href="https://fonts.timesdev.tools/fonts/TimesDigital-Regular.css" />
+        <link rel="stylesheet" href="https://fonts.timesdev.tools/fonts/TimesModern-Bold.css" />
   </head>
   <body>
 
-    <!--
-      SVG container for d3 chart
-    -->
-    <svg id="chart"></svg>
+      <div class="Headline">Hemicycle layout</div>
+      <div class="Standfirst">Number of seats won in the Bundestag election 2017</div>
 
-    <script type="text/javascript" src="https://unpkg.com/d3"></script>
-    <script type="text/javascript" src="https://unpkg.com/d3-jetpack"></script>
-    <script type="text/javascript" src="layout.js"></script>
-    <script type="text/javascript" src="script.js"></script>
+      <div class="Article-content">
+          <p>This layout implements an abstracted representation of the Bundestag itself. Built for the 2017 German election, this rotated matrix featured in 
+              <a href="https://www.thetimes.co.uk/article/german-elections-2017-full-results-in-charts-and-maps-jtx2jlzh6" >our detailed coverage of the results.</a>
+          </p>
+      </div>
+
+      <!--
+           SVG container for d3 chart
+      -->
+      <svg id="chart"></svg>
+
+      <div class="links">
+          <ul>
+              <li>
+                  <p><a href="http://blockbuilder.org/basilesimon/f45a128670f51c0e17a73c7e462e186a">Click to edit live in Blockbuilder</a></p>
+              </li>
+              
+              <li>
+                  <p><a href="https://github.com/times/dataviz-catalogue/blob/master/hemicycle/script.js">See on Github</a></p>
+              </li>
+
+          </ul>
+      </div>
+
+      <script type="text/javascript" src="https://unpkg.com/d3"></script>
+      <script type="text/javascript" src="https://unpkg.com/d3-jetpack"></script>
+      <script type="text/javascript" src="layout.js"></script>
+      <script type="text/javascript" src="script.js"></script>
   </body>
 </html>

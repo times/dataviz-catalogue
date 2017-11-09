@@ -1,6 +1,6 @@
 const config = {
   width: 800,
-  height: 600,
+  height: 500,
   rows: 10,
   columns: 35,
 };
