@@ -25,20 +25,28 @@ const svg = d3
 // g is our main container
 const g = svg.append('g').translate([margin.left, margin.top]);
 
-d3.json('data.json', function(err, dataset) {
+d3.json('data.json', (err, dataset) => {
+  if (err) {
+    console.log(err);
+  }
+
   // Constrain to dates
   const parseTime = d3.timeParse('%d/%m/%Y');
-  dataset.forEach(d => {
-    d.date = parseTime(d.Date);
-  });
+  // Map over the data to process it, return a fresh copy, rather than mutating the original data
+  const processedData = dataset.map(d =>
+    Object.assign({}, d, { date: parseTime(d.Date) })
+  );
 
   /*
    * Scales
    * note that we use give an area to d3's radius parameter
    */
   const area = d3.scaleSqrt().range([3, config.circleRadius]).domain([0, 200]);
-  const x = d3.scaleLinear().range([0, width]).domain([0, dataset.length]);
-  x.domain(d3.extent(dataset, d => d.date));
+  const x = d3
+    .scaleLinear()
+    .range([0, width])
+    .domain([0, processedData.length]);
+  x.domain(d3.extent(processedData, d => d.date));
 
   // X-axis
   g
@@ -57,9 +65,9 @@ d3.json('data.json', function(err, dataset) {
    * by sorting this way, the largest bubbles are
    * always at the very back. not data is hidden.
    */
-  dataset.sort((x, y) => d3.descending(x.Fee, y.Fee));
+  processedData.sort((x, y) => d3.descending(x.Fee, y.Fee));
 
-  let circles = g.selectAll('circle').data(dataset);
+  let circles = g.selectAll('circle').data(processedData);
   circles
     .enter()
     .append('circle')

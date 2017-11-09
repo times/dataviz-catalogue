@@ -18,8 +18,8 @@ const margin = { top: 30, right: 60, bottom: 0, left: 40 },
 d3.select('#times-vertical-line').html('');
 
 const svg = d3.select('#times-vertical-line').at({
-  width: width,
-  height: height,
+  width,
+  height,
 });
 
 // Date parser
@@ -39,24 +39,30 @@ const line = d3
 // g is our container
 const g = svg.append('g').translate([margin.left + 10, margin.top + 10]);
 
-d3.json('data.json', function(err, dataset) {
-  dataset.forEach(d => {
-    d.year = parseTime(d.year);
-    d.value = +d.value;
-  });
+d3.json('data.json', (err, dataset) => {
+  if (err) {
+    console.log(err);
+  }
+
+  const processedData = dataset.map(d =>
+    Object.assign({}, d, {
+      year: parseTime(d.year),
+      value: parseInt(d.value),
+    })
+  );
 
   // Min, max values from dataset
   // or computed for each club
   const hardCordedDomain = [-140, 140];
   const clubDomain = [
-    d3.min(dataset, d => d.value),
-    d3.max(dataset, d => d.value),
+    d3.min(processedData, d => d.value),
+    d3.max(processedData, d => d.value),
   ];
 
   // Set domains
   // Fixed values x-axis
   x.domain(hardCordedDomain);
-  y.domain(d3.extent(dataset, d => d.year).reverse());
+  y.domain(d3.extent(processedData, d => d.year).reverse());
 
   // X-axis
   g
@@ -105,7 +111,7 @@ d3.json('data.json', function(err, dataset) {
   // Main spending line
   g
     .append('path')
-    .datum(dataset)
+    .datum(processedData)
     .at({ class: 'line', d: line })
     .translate([30, 0]);
 

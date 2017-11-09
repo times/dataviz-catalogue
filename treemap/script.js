@@ -49,11 +49,7 @@ d3.json('data.json', function(err, dataset) {
     .append('rect')
     .at({
       id: d => d.data.id,
-      class: d => {
-        if (d.x1 - d.x0 > 120 && d.y1 - d.y0 > 40) {
-          return 'wide';
-        }
-      },
+      class: d => (d.x1 - d.x0 > 120 && d.y1 - d.y0 > 40 ? 'wide' : null),
       width: d => d.x1 - d.x0,
       height: d => d.y1 - d.y0,
       fill: d => color(d.parent.data.id),
@@ -63,7 +59,7 @@ d3.json('data.json', function(err, dataset) {
       d3
         .selectAll('rect')
         .transition()
-        .duration(200)
+        .duration(100)
         .style('opacity', function() {
           return this === _this ? 1.0 : 0.6;
         });
@@ -88,7 +84,7 @@ d3.json('data.json', function(err, dataset) {
     })
     .text(function(d) {
       // Only display text if sibling <rect> element is wide enough
-      var parentRect = this.parentNode.previousElementSibling;
+      const parentRect = this.parentNode.previousElementSibling;
       if (d3.select(parentRect).classed('wide')) {
         return d.data.name;
       }
@@ -96,9 +92,7 @@ d3.json('data.json', function(err, dataset) {
 
   cell
     .append('text')
-    .attr('clip-path', function(d) {
-      return 'url(#clip-' + d.data.id + ')';
-    })
+    .attr('clip-path', d => 'url(#clip-' + d.data.id + ')')
     .append('tspan')
     .at({
       x: 8,
@@ -108,7 +102,7 @@ d3.json('data.json', function(err, dataset) {
     })
     .text(function(d) {
       // Only display text if sibling <rect> element is wide enough
-      var parentRect = this.parentNode.parentNode.firstElementChild;
+      const parentRect = this.parentNode.parentNode.firstElementChild;
       if (d3.select(parentRect).classed('wide')) {
         return '£' + d.data.fee.split('.')[0] + 'm';
       }
@@ -122,9 +116,11 @@ d3.json('data.json', function(err, dataset) {
     { name: 'S. America', color: '#F37F2F' },
   ];
 
-  const legendx = width + 10;
-  const legendy = 10;
-  const legendheight = 20;
+  let legendConfig = {
+    x: width + 10,
+    y: 10,
+    height: 20,
+  };
 
   // Create a legend element
   const legend = container
@@ -136,20 +132,20 @@ d3.json('data.json', function(err, dataset) {
     .append('g')
     .at({ class: 'legend' })
     .attr('transform', (d, i) => {
-      var leftmargin = 0;
-      var topmargin = 0;
-      var x = leftmargin + legendx;
-      var y = i * legendheight + legendy + topmargin;
+      const leftmargin = 0;
+      const topmargin = 0;
+      const x = leftmargin + legendConfig.x;
+      const y = i * legendConfig.height + legendConfig.y + topmargin;
       return 'translate(' + x + ',' + y + ')';
     });
 
   const legendTitle = container
     .append('g')
     .at({ class: 'legendTitle' })
-    .attr('transform', function(d, i) {
-      var height = 20;
-      var x = legendx;
-      var y = i * height + legendy;
+    .attr('transform', (d, i) => {
+      const height = 20;
+      const x = legendConfig.x;
+      const y = i * height + legendConfig.y;
       return 'translate(' + x + ',' + y + ')';
     });
 
@@ -198,7 +194,7 @@ d3.json('data.json', function(err, dataset) {
   // Create a legend element
   const titleheight = height;
   const titlemargin = 30;
-  var playerInfo = svg
+  const playerInfoContainer = svg
     .append('g')
     .attr('class', 'playerInfoContainer')
     .selectAll('g')
@@ -206,32 +202,32 @@ d3.json('data.json', function(err, dataset) {
     .enter()
     .append('g')
     .attr('class', 'playerInfo')
-    .attr('transform', function(d, i) {
-      var height = 20;
-      var x = legendx;
-      var y = i * titleheight + 10;
+    .attr('transform', (d, i) => {
+      const height = 20;
+      const x = legendConfig.x;
+      const y = i * titleheight + 10;
       return 'translate(' + x + ',' + y + ')';
     });
 
-  var playerInfoTitle = svg
+  const playerInfoTitle = svg
     .append('g')
     .attr('class', 'playerInfoTitle')
-    .attr('transform', function(d, i) {
-      var height = 20;
-      var x = legendx;
-      var y = titleheight * 0.3 + titlemargin;
+    .attr('transform', (d, i) => {
+      const height = 20;
+      const x = legendConfig.x;
+      const y = titleheight * 0.3 + titlemargin;
       return 'translate(' + x + ',' + y + ')';
     });
 
   playerInfoTitle.append('text').attr('x', 0).attr('y', 0);
 
-  var playerInfo = svg
+  const playerInfo = svg
     .append('g')
     .attr('class', 'playerInfo')
-    .attr('transform', function(d, i) {
-      var height = 20;
-      var x = legendx;
-      var y = titleheight * 0.3 + titlemargin + 30;
+    .attr('transform', (d, i) => {
+      const height = 20;
+      const x = legendConfig.x;
+      const y = titleheight * 0.3 + titlemargin + 30;
       return 'translate(' + x + ',' + y + ')';
     });
 
@@ -242,9 +238,7 @@ d3.json('data.json', function(err, dataset) {
       x: 0,
       y: 10,
     })
-    .tspans(function() {
-      return d3.wordwrap('Tap an area for more information', 40);
-    });
+    .tspans(() => d3.wordwrap('Tap an area for more information', 40));
 
   // Appends player info on click on a rect
   const appendPlayerInfo = (obj, data) => {
@@ -260,11 +254,11 @@ d3.json('data.json', function(err, dataset) {
     playerInfo
       .append('text')
       .at({ y: -25 })
-      .tspans(function() {
-        var name = data.data.name;
+      .tspans(() => {
+        const name = data.data.name;
         return d3.wordwrap(name + ' ' + data.data.fromto, 15);
       })
-      .attr('dy', (d, i) => i + 1 * 15);
+      .attr('dy', (d, i) => i + 15);
   };
 });
 
