@@ -3,7 +3,7 @@
  * DO uncomment further below
  *    draggable(true)
  */
-var annotations = [
+const annotations = [
   {
     Fee: '50',
     Age: '25',
@@ -21,9 +21,9 @@ var annotations = [
 ];
 
 // set config object
-var config = { width: 600, height: 450 };
+const config = { width: 600, height: 450 };
 
-var margin = { top: 20, right: 40, bottom: 50, left: 60 },
+const margin = { top: 20, right: 40, bottom: 80, left: 60 },
   width = config.width - margin.left - margin.right,
   height = config.height - margin.top - margin.bottom;
 
@@ -31,10 +31,10 @@ var margin = { top: 20, right: 40, bottom: 50, left: 60 },
 // By brutally emptying all HTML from plot container div
 d3.select('#times-scatterplot').html('');
 
-var svg = d3
-  .select('#times-scatterplot')
-  .attr('width', config.width)
-  .attr('height', config.height);
+const svg = d3.select('#times-scatterplot').at({
+  width: config.width,
+  height: config.height,
+});
 
 /*
  * Scales
@@ -42,13 +42,11 @@ var svg = d3
  * and are linear
  * More about scales: https://github.com/d3/d3/blob/master/API.md#scales-d3-scale
  */
-var x = d3.scaleLinear().range([0, width]);
-var y = d3.scaleLinear().range([height, 0]);
+const x = d3.scaleLinear().range([0, width]);
+const y = d3.scaleLinear().range([height, 0]);
 
 // g is our main container
-var g = svg
-  .append('g')
-  .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+const g = svg.append('g').translate([margin.left + 20, margin.top]);
 
 d3.json('data.json', function(err, dataset) {
   /*
@@ -63,11 +61,9 @@ d3.json('data.json', function(err, dataset) {
    * d3.extent should return a [min,max] array
    * We're hard-coding the y-axis extent in this case
    */
-  var xExtent = d3.extent(dataset, function(d) {
-    return d.Age;
-  });
+  const xExtent = d3.extent(dataset, d => d.Age);
   //var yExtent = d3.extent(dataset, function(d) { return d.Fee; });
-  var yExtent = d3.extent([0, 65]);
+  const yExtent = d3.extent([0, 65]);
 
   x.domain(xExtent);
   y.domain(yExtent);
@@ -75,41 +71,44 @@ d3.json('data.json', function(err, dataset) {
   // X-axis
   g
     .append('g')
-    .attr('class', 'axis axis--x')
-    .attr('transform', 'translate(0,' + height + ')')
+    .at({
+      class: 'axis axis--x',
+    })
+    .translate([0, height])
     .call(d3.axisBottom(x).ticks(10).tickSizeInner(0).tickPadding(20));
 
   // text label for the x axis
   g
     .append('text')
     .attr('class', 'label')
-    .attr(
-      'transform',
-      'translate(' + width / 2 + ' ,' + (height + margin.top + 40) + ')'
-    )
+    .at({ class: 'label' })
+    .translate([width / 2, height + margin.top + 40])
     .style('text-anchor', 'middle')
     .text('Age');
 
   // Y-axis
-  g.append('g').attr('class', 'axis axis--y').call(
-    d3
-      .axisLeft(y)
-      .ticks(5)
-      .tickSize(-width)
-      .tickPadding(20)
-      .tickFormat(function(d) {
-        return d + 'm';
-      })
-  );
+  g
+    .append('g')
+    .at({ class: 'axis axis--y' })
+    .call(
+      d3
+        .axisLeft(y)
+        .ticks(5)
+        .tickSize(-width)
+        .tickPadding(20)
+        .tickFormat(d => d + 'm')
+    );
 
   // text label for the y axis
   g
     .append('text')
-    .attr('class', 'label')
-    .attr('transform', 'rotate(-90)')
-    .attr('y', 0 - margin.left)
-    .attr('x', 0 - height / 2)
-    .attr('dy', '0em')
+    .at({
+      class: 'label',
+      transform: 'rotate(-90)',
+      y: 0 - margin.left,
+      x: 0 - height / 2,
+      dy: '0em',
+    })
     .style('text-anchor', 'middle')
     .text('Fee (£)');
 
@@ -117,31 +116,25 @@ d3.json('data.json', function(err, dataset) {
   g
     .selectAll('dot')
     .data(dataset)
-    .attr('class', 'dots')
+    .at({ class: 'dots' })
     .enter()
     .append('circle')
-    .attr('r', 5)
-    .attr('cx', function(d) {
-      return x(d.Age);
-    })
-    .attr('cy', function(d) {
-      return y(d.Fee);
+    .at({
+      r: 5,
+      cx: d => x(d.Age),
+      cy: d => y(d.Fee),
     })
     .style('fill', '#254251');
 
   // Annotations
-  var swoopy = d3
+  const swoopy = d3
     .swoopyDrag()
-    .x(function(d) {
-      return x(d.Age);
-    })
-    .y(function(d) {
-      return y(d.Fee);
-    })
+    .x(d => x(d.Age))
+    .y(d => y(d.Fee))
     //.draggable(true)
     .annotations(annotations);
 
-  var swoopySel = g.append('g').attr('class', 'annotations').call(swoopy);
+  const swoopySel = g.append('g').attr('class', 'annotations').call(swoopy);
 
   // SVG arrow marker fix
   // Do not change

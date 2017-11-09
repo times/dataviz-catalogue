@@ -7,6 +7,13 @@ d3.json('index.json', function(error, imgs) {
     .append('div')
     .attr('class', 'item');
 
+  divs
+    .append('div')
+    .text(function(d) {
+      return d.title;
+    })
+    .attr('class', 'chartTitle');
+
   var links = divs
     .append('a')
     .attr('href', function(d) {
@@ -17,11 +24,4 @@ d3.json('index.json', function(error, imgs) {
     .attr('src', function(d) {
       return d.img;
     });
-
-  divs
-    .append('h3')
-    .text(function(d) {
-      return d.title;
-    })
-    .attr('class', 'Item-headline Headline--s');
 });

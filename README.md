@@ -6,7 +6,7 @@
 * [Small multiples](https://github.com/times/dataviz-catalogue/tree/master/small-multiples)
 * [Timeline of bubbles](https://github.com/times/dataviz-catalogue/tree/master/timeline-bubbles)
 * [Hemicycle](https://github.com/times/dataviz-catalogue/tree/master/hemicycle)
-* [Waffle chart](https://github.com/times/dataviz-catalogue/tree/master/waggle)
+* [Waffle chart](https://github.com/times/dataviz-catalogue/tree/master/waffle)
 
 ## Instructions
 
