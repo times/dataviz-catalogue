@@ -1,20 +1,3 @@
-body {
-    margin: 0 auto;
-    width: 70%;
-    background-color: #fff;
-    padding-top: 5rem;
-}
-
-.Headline {
-    color: #000;
-    margin-bottom: 0;
-    font-family: "TimesModern-Bold";
-    font-size: 2.8rem;
-    line-height: 32px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-}
 .Standfirst {
     color: #4a4a4a;
     font-family: "TimesDigital-Regular.css"
@@ -32,6 +15,7 @@ svg {
 
 .links {
     margin-top: 3rem;
+    font-size: 1.5rem;
 }
 ul {
     list-style: none;
@@ -44,7 +28,10 @@ li::before {
 li {
     position: relative;
 }
-p {
+.Article-content {
+    margin-bottom: 2rem;
+}
+.Article-content p {
     font-family: "TimesModern-Regular";
     font-size: 1.2em;
     color: #333;
@@ -52,4 +39,8 @@ p {
 a {
     text-decoration: underline;
     font-family: "TimesModern-Regular" !important;
+}
+
+.Byline > a:hover {
+    color: #ddd;
 }

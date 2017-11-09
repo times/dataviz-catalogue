@@ -124,7 +124,7 @@ img {
     padding-top: 3em;
     color: #fff;
 }
-p {
+.section > p {
     font-family: "GillSansMTStd-Medium";
     margin: 1rem 0 1rem 0;
     opacity: .8;
