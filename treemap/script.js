@@ -16,7 +16,12 @@ const timesColors = ['#254251', '#E0AB26', '#F37F2F', '#3292A6', '#6c3c5e'];
 const color = d3.scaleOrdinal(timesColors);
 const format = d3.format(',d');
 
-d3.json('data.json', function(err, dataset) {
+d3.json('data.json', (err, dataset) => {
+  if (err) {
+    console.log(err);
+    return;
+  }
+
   const treemap = d3
     .treemap()
     .tile(d3.treemapResquarify)
@@ -202,34 +207,21 @@ d3.json('data.json', function(err, dataset) {
     .enter()
     .append('g')
     .attr('class', 'playerInfo')
-    .attr('transform', (d, i) => {
-      const height = 20;
-      const x = legendConfig.x;
-      const y = i * titleheight + 10;
-      return 'translate(' + x + ',' + y + ')';
+    .translate((d, i) => {
+      return [legendConfig.x, i * titleheight + 10];
     });
 
   const playerInfoTitle = svg
     .append('g')
     .attr('class', 'playerInfoTitle')
-    .attr('transform', (d, i) => {
-      const height = 20;
-      const x = legendConfig.x;
-      const y = titleheight * 0.3 + titlemargin;
-      return 'translate(' + x + ',' + y + ')';
-    });
+    .translate([legendConfig.x, titleheight * 0.3 + titlemargin]);
 
   playerInfoTitle.append('text').attr('x', 0).attr('y', 0);
 
   const playerInfo = svg
     .append('g')
     .attr('class', 'playerInfo')
-    .attr('transform', (d, i) => {
-      const height = 20;
-      const x = legendConfig.x;
-      const y = titleheight * 0.3 + titlemargin + 30;
-      return 'translate(' + x + ',' + y + ')';
-    });
+    .translate([legendConfig.x, titleheight * 0.3 + titlemargin + 30]);
 
   playerInfo
     .append('text')
@@ -255,8 +247,8 @@ d3.json('data.json', function(err, dataset) {
       .append('text')
       .at({ y: -25 })
       .tspans(() => {
-        const name = data.data.name;
-        return d3.wordwrap(name + ' ' + data.data.fromto, 15);
+        const { name, fromto } = data.data;
+        return d3.wordwrap(name + ' ' + fromto, 15);
       })
       .attr('dy', (d, i) => i + 15);
   };

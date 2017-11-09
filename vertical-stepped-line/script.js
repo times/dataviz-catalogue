@@ -42,6 +42,7 @@ const g = svg.append('g').translate([margin.left + 10, margin.top + 10]);
 d3.json('data.json', (err, dataset) => {
   if (err) {
     console.log(err);
+    return;
   }
 
   const processedData = dataset.map(d =>
