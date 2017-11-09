@@ -44,10 +44,6 @@ body {
     }
 }
 
-p {
-    font-family: "TimesDigital-Regular";
-}
-
 .Headline {
     color: #000;
     margin-bottom: 0;
@@ -125,9 +121,19 @@ img {
 
 
 .section {
-    border-top: 1px solid #ddd;
-    padding-top: 1em;
+    padding-top: 3em;
+    color: #fff;
 }
+p {
+    font-family: "GillSansMTStd-Medium";
+    margin: 1rem 0 1rem 0;
+    opacity: .8;
+}
+
+.section a {
+    text-decoration: underline;
+}
+
 
 .Byline {
     font-family: "TimesModern-Regular";
@@ -139,13 +145,14 @@ img {
     flex-direction: column;
     border-top: 1px solid #dbdbdb;
     padding-top: .5em;
-    width: 70%;
+    width: 90%;
     margin: auto 0 0;
 }
 .team {
     font-family: "GillSansMTStd-Medium";
     font-size: .8em;
     font-weight: 300;
+    opacity: .8;
 }
 
 @media screen and (max-width: 767px) {
