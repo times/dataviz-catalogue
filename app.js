@@ -1,27 +1,23 @@
-d3.json('index.json', function(error, imgs) {
-  var body = d3.select('#container');
-  var divs = body
+d3.json('index.json', (error, imgs) => {
+  if (error) {
+    console.log(error);
+    return;
+  }
+
+  const body = d3.select('#container');
+  const divs = body
     .selectAll('div')
     .data(imgs)
     .enter()
     .append('div')
     .attr('class', 'item');
 
-  divs
-    .append('div')
-    .text(function(d) {
-      return d.title;
-    })
-    .attr('class', 'chartTitle');
+  divs.append('div').text(d => d.title).attr('class', 'chartTitle');
 
-  var links = divs
+  const links = divs
     .append('a')
-    .attr('href', function(d) {
-      return d.url;
-    })
+    .attr('href', d => d.url)
     .append('img')
     .style('height', '200px')
-    .attr('src', function(d) {
-      return d.img;
-    });
+    .attr('src', d => d.img);
 });
