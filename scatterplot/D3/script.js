@@ -23,7 +23,7 @@ const annotations = [
 // set config object
 const config = { width: 600, height: 450 };
 
-const margin = { top: 20, right: 40, bottom: 80, left: 60 },
+const margin = { top: 50, right: 40, bottom: 50, left: 60 },
   width = config.width - margin.left - margin.right,
   height = config.height - margin.top - margin.bottom;
 
@@ -46,7 +46,7 @@ const x = d3.scaleLinear().range([0, width]);
 const y = d3.scaleLinear().range([height, 0]);
 
 // g is our main container
-const g = svg.append('g').translate([margin.left + 20, margin.top]);
+const g = svg.append('g').translate([margin.left + 20, 0]);
 
 d3.json('data.json', function(err, dataset) {
   /*
@@ -82,7 +82,7 @@ d3.json('data.json', function(err, dataset) {
     .append('text')
     .attr('class', 'label')
     .at({ class: 'label' })
-    .translate([width / 2, height + margin.top + 40])
+    .translate([width / 2, height + margin.top])
     .style('text-anchor', 'middle')
     .text('Age');
 
