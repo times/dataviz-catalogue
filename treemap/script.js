@@ -230,7 +230,7 @@ d3.json('data.json', (err, dataset) => {
       x: 0,
       y: 10,
     })
-    .tspans(() => d3.wordwrap('Tap an area for more information', 40));
+    .tspans(() => d3.wordwrap('Tap an area for more information', 20));
 
   // Appends player info on click on a rect
   const appendPlayerInfo = (obj, data) => {
