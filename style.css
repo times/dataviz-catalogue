@@ -29,18 +29,22 @@ body {
     }
     .sidebar, .wrapper {
         width: 100%;
-        height: 10rem;
     }
     .sidebar {
+        height: 32rem;
+        bottom: 0;
         padding-top: 0;
         padding-bottom: 2rem;
+        position: relative;
+        order: 2;
     }
     .wrapper {
         margin-left: 0;
         padding-right: 1em;
         padding-left: 1em;
         padding-top: 2em;
-        margin-top: 10rem;
+        position: relative;
+        order: 1;
     }
 }
 
@@ -55,6 +59,11 @@ body {
     align-items: center;
 }
 
+@media screen and (max-width: 767px) {
+    .Headline, .Standfirst {
+        text-align: center;
+    }
+}
 
 .Headline iframe {
     margin-right: 0;
