@@ -21,9 +21,10 @@ ul {
     list-style: none;
 }
 li::before {
-    content: "♥";
+    content: "♥ ";
     position: absolute;
     left: -10px;
+    top: 10px;
 }
 li {
     position: relative;
@@ -43,4 +44,8 @@ a {
 
 .Byline > a:hover {
     color: #ddd;
+}
+
+.Byline a {
+    text-decoration: none;
 }
