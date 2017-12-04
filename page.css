@@ -24,7 +24,6 @@ li::before {
     content: "♥ ";
     position: absolute;
     left: -10px;
-    top: 10px;
 }
 li {
     position: relative;
@@ -48,4 +47,8 @@ a {
 
 .Byline a {
     text-decoration: none;
+}
+
+.Byline .Icon {
+    transform: translate(-3px, -2px);
 }
