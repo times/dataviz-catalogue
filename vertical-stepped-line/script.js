@@ -9,8 +9,8 @@ const annotations = [
 ];
 
 // The config object passed by draw() gives us a width and height
-const config = { width: 600, height: 450 };
-const margin = { top: 30, right: 60, bottom: 0, left: 40 },
+const config = { width: 600, height: 550 };
+const margin = { top: 30, right: 100, bottom: 100, left: 40 },
   width = config.width - margin.left - margin.right,
   height = config.height - margin.top - margin.bottom;
 
@@ -18,8 +18,8 @@ const margin = { top: 30, right: 60, bottom: 0, left: 40 },
 d3.select('#times-vertical-line').html('');
 
 const svg = d3.select('#times-vertical-line').at({
-  width,
-  height,
+  width: config.width,
+  height: config.height,
 });
 
 // Date parser
@@ -37,7 +37,7 @@ const line = d3
   .curve(d3.curveStepAfter);
 
 // g is our container
-const g = svg.append('g').translate([margin.left + 10, margin.top + 10]);
+const g = svg.append('g').translate([margin.left, margin.top]);
 
 d3.json('data.json', (err, dataset) => {
   if (err) {
