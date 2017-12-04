@@ -2,18 +2,24 @@
     margin: 0 auto;
     padding: 25px;
     background-color: #f8f7f1;
-    width: 600px;
-    height: 300px;
+    width: 700px;
+    height: 350px;
     display: flex;
     flex-wrap: wrap;
 }
 text {
     font: 10px sans-serif;
+    color: #696969;
 }
+
+text.title {
+    font: 13px;
+}
+
 .axis path,
 .axis line {
     fill: none;
-    stroke: #000000;
+    stroke: #dbdbdb;
     shape-rendering: crispEdges;
 }
 .axis {
@@ -22,10 +28,15 @@ text {
 }
 .line {
     fill: none;
-    stroke: #000000;
+    stroke: #254151;
     stroke-width: 2;
 }
 .area {
     fill: #254251;
     opacity:.2;
+}
+
+path.domain {
+    stroke: #dbdbdb;
+    stroke-width: 1px;
 }

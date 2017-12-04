@@ -1,0 +1,54 @@
+.Standfirst {
+    color: #4a4a4a;
+    font-family: "TimesDigital-Regular.css"
+    font-size: 18px;
+    line-height: 26px;
+    margin-top: 5px;
+}
+
+svg {
+    margin: 0 auto;
+    padding: 0px;
+    background-color: #f7f8f1;
+    display: flex;
+}
+
+.links {
+    margin-top: 3rem;
+    font-size: 1.5rem;
+}
+ul {
+    list-style: none;
+}
+li::before {
+    content: "♥ ";
+    position: absolute;
+    left: -10px;
+}
+li {
+    position: relative;
+}
+.Article-content {
+    margin-bottom: 2rem;
+}
+.Article-content p {
+    font-family: "TimesModern-Regular";
+    font-size: 1.2em;
+    color: #333;
+}
+a {
+    text-decoration: underline;
+    font-family: "TimesModern-Regular" !important;
+}
+
+.Byline > a:hover {
+    color: #ddd;
+}
+
+.Byline a {
+    text-decoration: none;
+}
+
+.Byline .Icon {
+    transform: translate(-3px, -2px);
+}

@@ -6,7 +6,7 @@ const config = {
   circleRadius: 70,
 };
 
-const margin = { top: 40, right: 50, bottom: 30, left: 20 },
+const margin = { top: 40, right: 100, bottom: 30, left: 20 },
   width = config.width - margin.left - margin.right,
   height = config.height - margin.top - margin.bottom;
 
@@ -73,9 +73,7 @@ d3.json('data.json', (err, dataset) => {
     .append('circle')
     .at({
       class: 'circle',
-      cx: function(d) {
-        return x(d.date);
-      },
+      cx: d => x(d.date),
       cy: height * 0.5,
     })
     .transition()

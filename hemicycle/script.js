@@ -1,6 +1,6 @@
 const config = {
   width: 800,
-  height: 600,
+  height: 500,
   rows: 10,
   columns: 35,
 };
@@ -30,7 +30,7 @@ const svg = d3
   })
   .st({ backgroundColor: '#F8F7F1' })
   .append('g')
-  .translate([config.width / 2, config.height / 2]);
+  .translate([config.width / 2, config.height / 2 + 50]);
 
 // Setup for hemicycle layout: essentially a matrix at an angle
 const layout = d3_iconarray

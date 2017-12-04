@@ -2,8 +2,6 @@ svg {
   margin: 0 auto;
   padding: 25px;
   overflow: visible;
-  padding-bottom: 100px;
-  padding-right: 110px;
   display: flex;
   background-color: #f7f8f1;
 }
