@@ -21,11 +21,14 @@ const chart = timeSeriesChart()
   .width(200)
   .height(100)
   .values(d => d.values)
+  .title(d => d.key)
+  .titleX(25)
+  .titleY(-10)
   .margin({ top: 20, right: 20, bottom: 20, left: 10 });
 
 chart.xExtent(d3.extent(dataset, chart.x()));
 
-var symbols = d3.nest().key(d => d.symbol).entries(dataset);
+const symbols = d3.nest().key(d => d.symbol).entries(dataset);
 
 d3
   .select('.container')
