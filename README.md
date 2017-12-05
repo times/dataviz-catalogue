@@ -1,5 +1,7 @@
 # Times Data Viz catalogue
 
+[Read about this project on Medium](https://medium.com/digital-times/opening-the-times-dataviz-catalogue-c6fd6e30ccb2)
+
 * [Vertical steppy line](https://github.com/times/dataviz-catalogue/tree/master/vertical-steppy-line)
 * [Scatterplot](https://github.com/times/dataviz-catalogue/tree/master/scatterplot)
 * [Treemap](https://github.com/times/dataviz-catalogue/tree/master/treemap)
