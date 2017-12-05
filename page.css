@@ -52,3 +52,12 @@ a {
 .Byline .Icon {
     transform: translate(-3px, -2px);
 }
+
+@media screen and (max-width: 767px) {
+    .sidebar {
+        height: 9rem;
+    }
+    .wrapper {
+        margin-bottom: 3rem;
+    }
+}

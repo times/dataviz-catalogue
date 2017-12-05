@@ -121,9 +121,13 @@ img {
     flex-direction: column;
     padding: 1em;
     margin-bottom: 1em;
-    margin-right: 1em;
     background-color: #f8f7f1;
     width: 300px;
+}
+@media screen and (min-width: 768px) {
+    .item {
+        margin-right: 1em;
+    }
 }
 
 .chartTitle {
