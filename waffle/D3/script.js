@@ -65,20 +65,25 @@ points
   .style('opacity', 1);
 
 const yScale = d3.scalePoint().domain(d3.range(30)).range([height, 0]);
-g
-  .append('line')
-  .attr('x1', -10)
-  .attr('y1', yScale(10) - 5)
-  .attr('x2', width + 10)
-  .attr('y2', yScale(10) - 5)
-  .attr('stroke', '#4d4d4d')
-  .attr('stroke-width', '1px');
+g.append('line').at({
+  x1: -10,
+  y1: yScale(10) - 5,
+  x2: width + 10,
+  y2: yScale(10) - 5,
+  stroke: '#4d4d4d',
+  strokeWidth: '1px',
+});
+
 g
   .append('text')
-  .attr('class', 'label')
-  .attr('x', width + 20)
-  .attr('y', yScale(10))
+  .at({
+    class: 'label',
+    x: width + 20,
+    y: yScale(10),
+  })
   .text('300 things')
-  .attr('font-family', 'sans-serif')
-  .attr('fill', '#4d4d4d')
+  .at({
+    fontFamily: 'sans-serif',
+    fill: '#4d4d4d',
+  })
   .style('opacity', '1');
