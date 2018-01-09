@@ -14,7 +14,7 @@
 
 Download this repo as ZIP file (or `git clone` it).
 
-Open `index.html** in your favourite web browser to display the available charts and some basic instructions.
+Open `index.html` in your favourite web browser to display the available charts and some basic instructions.
 
 Each folder contains a working version of a chart. You can of course edit the files to tweak things.
 
