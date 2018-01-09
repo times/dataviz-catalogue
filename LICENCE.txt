@@ -1,4 +1,4 @@
-Copyright 2018 The Times and The Sunday Times
+Copyright 2018 Times Newspapers Limited
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
