@@ -1,6 +1,6 @@
 // set config object
 const config = {
-  width: 600,
+  width: 500,
   height: 400,
 };
 
@@ -19,7 +19,7 @@ const dataModel = [
   },
 ];
 
-const margin = { top: 50, right: 100, bottom: 50, left: 100 },
+const margin = { top: 30, right: 150, bottom: 50, left: 50 },
   width = config.width - margin.left - margin.right,
   height = config.height - margin.top - margin.bottom;
 
