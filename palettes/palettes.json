@@ -26,7 +26,7 @@
       {"code": "#7DA17D", "label": "sdlp"},
       {"code": "#3F617C", "label": "uup"},
       {"code": "#A0938F", "label": "others"}
-	  ]
+    ]
   },{
     "name": "German main political parties",
     "colours": [
@@ -37,6 +37,20 @@
       {"code": "#F0D034", "label": "fdp"},
       {"code": "grey", "label": "ind"},
       {"code": "#4990E2", "label": "afd"}
+    ]
+  },{
+    "name": "Sequential blue",
+    "colours": [
+      {"code": "#074467","label": ""},
+      {"code": "#15618a","label": ""},
+      {"code": "#2473a3","label": ""},
+      {"code": "#528ab7","label": ""},
+      {"code": "#74a9cf","label": ""},
+      {"code": "#91b9d5","label": ""},
+      {"code": "#aecce2","label": ""},
+      {"code": "#c1d7ea","label": ""},
+      {"code": "#e0e7f1","label": ""},
+      {"code": "#ebeff5","label": ""}
 	  ]
   }
 ]
