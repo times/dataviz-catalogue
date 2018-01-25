@@ -1,17 +1,31 @@
-[{
-	"name": "UK political parties",
-	"colours": [
-		{"code": "#4093B2", "label": "con"},
-		{"code": "#EC5156", "label": "lab"},
-		{"code": "#F6C55E", "label": "libdem"},
-		{"code": "#9767AE", "label": "ukip"},
-		{"code": "#FFF685", "label": "snp"},
-		{"code": "#61A961", "label": "green"},
-		{"code": "#90CD7C", "label": "pc"},
-		{"code": "#A15252", "label": "dup"},
-		{"code": "#44966B", "label": "sf"},
-		{"code": "#7DA17D", "label": "sdlp"},
-		{"code": "#3F617C", "label": "uup"},
-		{"code": "#A0938F", "label": "others"}
-	]
-}]
+[
+  {
+    "name": "Times Digital main colours",
+    "colours": [
+      {"code": "#254251", "label": ""},
+      {"code": "#e0ab26", "label": ""},
+      {"code": "#80b1e2", "label": ""},
+      {"code": "#f37f2f", "label": ""},
+      {"code": "#3292a6", "label": ""},
+      {"code": "#6c3c5e", "label": ""},
+      {"code": "#dacfc1", "label": ""},
+      {"code": "#96807a", "label": ""}
+    ]
+  },{
+    "name": "UK political parties",
+    "colours": [
+      {"code": "#4093B2", "label": "con"},
+      {"code": "#EC5156", "label": "lab"},
+      {"code": "#F6C55E", "label": "libdem"},
+      {"code": "#9767AE", "label": "ukip"},
+      {"code": "#FFF685", "label": "snp"},
+      {"code": "#61A961", "label": "green"},
+      {"code": "#90CD7C", "label": "pc"},
+      {"code": "#A15252", "label": "dup"},
+      {"code": "#44966B", "label": "sf"},
+      {"code": "#7DA17D", "label": "sdlp"},
+      {"code": "#3F617C", "label": "uup"},
+      {"code": "#A0938F", "label": "others"}
+	  ]
+  }
+]

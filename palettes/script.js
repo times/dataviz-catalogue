@@ -22,7 +22,7 @@ d3.json('palettes.json', (error, data) => {
     .data(data)
     .enter()
     .append('g')
-    .translate([10, 50]);
+    .translate((d, i) => [10, i * 130 + 50]);
 
   palette
     .append('text')
@@ -55,7 +55,7 @@ d3.json('palettes.json', (error, data) => {
 
   colour
     .append('text')
-    .at({ x: (d, i) => i * 60, y: 5, class: 'label' })
+    .at({ x: (d, i) => i * 60, y: 0, class: 'label' })
     .text(d => d.label)
-    .translate([0, config.blockWidth * 2]);
+    .translate([0, config.blockWidth * 2 - 5]);
 });
