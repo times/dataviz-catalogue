@@ -27,5 +27,16 @@
       {"code": "#3F617C", "label": "uup"},
       {"code": "#A0938F", "label": "others"}
 	  ]
+  },{
+    "name": "German main political parties",
+    "colours": [
+      {"code": "#000", "label": "cdu/csu"},
+      {"code": "#EB001F", "label": "spd"},
+      {"code": "#8C3473", "label": "left"},
+      {"code": "#58AB27", "label": "greens"},
+      {"code": "#F0D034", "label": "fdp"},
+      {"code": "grey", "label": "ind"},
+      {"code": "#4990E2", "label": "afd"}
+	  ]
   }
 ]

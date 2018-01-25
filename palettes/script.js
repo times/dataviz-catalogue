@@ -22,7 +22,7 @@ d3.json('palettes.json', (error, data) => {
     .data(data)
     .enter()
     .append('g')
-    .translate((d, i) => [10, i * 130 + 50]);
+    .translate((d, i) => [10, i * 150 + 50]);
 
   palette
     .append('text')
