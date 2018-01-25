@@ -52,5 +52,18 @@
       {"code": "#e0e7f1","label": ""},
       {"code": "#ebeff5","label": ""}
 	  ]
+  },{
+    "name": "Bivariate",
+    "colours": [
+      {"code": "#005415","label": ""},
+      {"code": "#7C8E1D","label": ""},
+      {"code": "#00594F","label": ""},
+      {"code": "#E0CD24","label": ""},
+      {"code": "#78966E","label": ""},
+      {"code": "#016389","label": ""},
+      {"code": "#DADA8B","label": ""},
+      {"code": "#86A7BF","label": ""},
+      {"code": "#E1E4E5","label": ""}
+	  ]
   }
 ]

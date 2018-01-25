@@ -1,5 +1,5 @@
 // set config object
-const config = { width: 700, height: 650, blockWidth: 50 };
+const config = { width: 700, height: 750, blockWidth: 50 };
 
 const margin = { top: 50, right: 40, bottom: 50, left: 60 },
   width = config.width - margin.left - margin.right,
