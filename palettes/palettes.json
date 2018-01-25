@@ -1,0 +1,17 @@
+[{
+	"name": "UK political parties",
+	"colours": [
+		{"code": "#4093B2", "label": "con"},
+		{"code": "#EC5156", "label": "lab"},
+		{"code": "#F6C55E", "label": "libdem"},
+		{"code": "#9767AE", "label": "ukip"},
+		{"code": "#FFF685", "label": "snp"},
+		{"code": "#61A961", "label": "green"},
+		{"code": "#90CD7C", "label": "pc"},
+		{"code": "#A15252", "label": "dup"},
+		{"code": "#44966B", "label": "sf"},
+		{"code": "#7DA17D", "label": "sdlp"},
+		{"code": "#3F617C", "label": "uup"},
+		{"code": "#A0938F", "label": "others"}
+	]
+}]

@@ -1,0 +1,12 @@
+svg {
+    background-color: #fff;
+    width: 100%;
+}
+
+.paletteTitle {
+    font-size: 2.3em;
+}
+.label {
+    font-family: "GillSansW01-Medium";
+    font-size: 1em;
+}
