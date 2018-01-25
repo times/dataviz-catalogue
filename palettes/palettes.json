@@ -39,6 +39,12 @@
       {"code": "#4990E2", "label": "afd"}
     ]
   },{
+    "name": "US main political parties",
+    "colours": [
+      {"code": "#015b90","label": "D"},
+      {"code": "#ff1c18","label": "R"}
+	  ]
+  },{
     "name": "Sequential blue",
     "colours": [
       {"code": "#074467","label": ""},
