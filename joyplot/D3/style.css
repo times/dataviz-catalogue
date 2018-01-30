@@ -1,0 +1,79 @@
+svg {
+    margin: 0 auto;
+    padding: 15px;
+    background-color: #f7f8f1;
+    display: flex;
+    overflow: visible;
+}
+
+  text, .text, .source {
+    font: 10px GillSansMTStd-Medium, GillSansW01-Medium;;
+    fill: #696969;
+    color: #696969;
+  }
+
+  .axis--term text {
+      font-family: TimesModern-Bold;
+      fill: #1a1a1a;
+      font-size: 2rem;
+      text-anchor: end;
+
+      @media only screen and (max-width: 767px) {
+          text-anchor: middle;
+      }
+  }
+
+  .term text {
+      @media only screen and (max-width: 767px) {
+          text-anchor: start !important;
+      }
+  }
+  
+  .axis .domain {
+      display: none;
+  }
+
+  .axis--x text {
+      fill: #999;
+  }
+
+  .axis--term .tick line {
+      display: none;
+  }
+
+  .line {
+      fill: none;
+      stroke: #ddd;
+  }
+
+  .tick line {
+      stroke-width: 1px;
+      stroke: #ddd;
+      stroke-dasharray: 5 5;
+  }
+
+  .area {
+      //fill: #254251;
+      opacity: .95;
+  }
+
+  .campaign {
+      opacity: .05;
+      color: #eee;
+  }
+
+  .section--people {
+      fill: #254251;
+  }
+  .section--phrases {
+      fill: #e0ab26;
+  }
+  .section--policy {
+      fill: #80b1e2;
+  }
+  .section--nicknames {
+      fill: #f37f2f;
+  }
+  .section--themedia {
+      fill: #3292a6;
+  }
