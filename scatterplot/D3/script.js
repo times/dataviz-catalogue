@@ -55,7 +55,8 @@ const y = d3.scaleLinear().range([height, 0]);
 // g is our main container
 const g = svg.append('g').translate([margin.left + 20, 0]);
 
-d3.json('data.json', function(err, dataset) {
+d3.json('data.json', (err, dataset) => {
+  if (err) throw err;
   /*
    * Constrain variables to numbers
    */

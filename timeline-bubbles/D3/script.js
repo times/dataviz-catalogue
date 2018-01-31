@@ -2,13 +2,22 @@
 const config = {
   width: 600,
   height: 350,
+  mobileWidth: 300,
+  mobileHeight: 300,
   ticksCount: 12,
+  mobileTicksCount: 3,
   circleRadius: 70,
+  mobileCircleRadius: 40,
 };
+const isMobile = window.innerWidth < 600 ? true : false;
 
 const margin = { top: 40, right: 100, bottom: 30, left: 20 },
-  width = config.width - margin.left - margin.right,
-  height = config.height - margin.top - margin.bottom;
+  width =
+    (isMobile ? config.mobileWidth : config.width) - margin.left - margin.right,
+  height =
+    (isMobile ? config.mobileHeight : config.height) -
+    margin.top -
+    margin.bottom;
 
 // Clean up before drawing
 // By brutally emptying all HTML from plot container div
@@ -17,8 +26,8 @@ d3.select('#times-timeline').html('');
 const svg = d3
   .select('#times-timeline')
   .at({
-    width: config.width,
-    height: config.height,
+    width: isMobile ? config.mobileWidth : config.width,
+    height: isMobile ? config.mobileHeight : config.height,
   })
   .st({ backgroundColor: '#F8F7F1' });
 
@@ -26,9 +35,7 @@ const svg = d3
 const g = svg.append('g').translate([margin.left, margin.top]);
 
 d3.json('data.json', (err, dataset) => {
-  if (err) {
-    console.log(err);
-  }
+  if (err) throw err;
 
   // Constrain to dates
   const parseTime = d3.timeParse('%d/%m/%Y');
@@ -41,7 +48,10 @@ d3.json('data.json', (err, dataset) => {
    * Scales
    * note that we use give an area to d3's radius parameter
    */
-  const area = d3.scaleSqrt().range([3, config.circleRadius]).domain([0, 200]);
+  const area = d3
+    .scaleSqrt()
+    .range([3, isMobile ? config.mobileCircleRadius : config.circleRadius])
+    .domain([0, 200]);
   const x = d3
     .scaleLinear()
     .range([0, width])
@@ -51,11 +61,11 @@ d3.json('data.json', (err, dataset) => {
   // X-axis
   g
     .append('g')
-    .translate([0, height / 2])
+    .translate([0, isMobile ? height / 4 : height / 2])
     .call(
       d3
         .axisBottom(x)
-        .ticks(config.ticksCount)
+        .ticks(isMobile ? config.mobileTicksCount : config.ticksCount)
         .tickFormat(d3.timeFormat('%d %b'))
         .tickSizeInner(70)
     );
@@ -74,7 +84,7 @@ d3.json('data.json', (err, dataset) => {
     .at({
       class: 'circle',
       cx: d => x(d.date),
-      cy: height * 0.5,
+      cy: isMobile ? height / 4 : height / 2,
     })
     .transition()
     .attr('r', d => area(d.Fee))
