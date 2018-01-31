@@ -3,7 +3,12 @@ const config = {
   height: 500,
   rows: 10,
   columns: 35,
+  mobileRows: 10,
+  mobileColumns: 35,
+  mobileWidth: 300,
+  mobileHeight: 400,
 };
+const isMobile = window.innerWidth < 600 ? true : false;
 
 // Sample data: Bundestag election 2017 results
 const data = [
@@ -24,24 +29,28 @@ data.map(d => {
 const svg = d3
   .select('#chart')
   .at({
-    width: config.width,
-    height: config.height,
+    width: isMobile ? config.mobileWidth : config.width,
+    height: isMobile ? config.mobileHeight : config.height,
     id: 'chart',
   })
   .st({ backgroundColor: '#F8F7F1' })
   .append('g')
-  .translate([config.width / 2, config.height / 2 + 50]);
+  .translate(
+    isMobile
+      ? [config.mobileWidth / 2, config.mobileHeight / 2 + 50]
+      : [config.width / 2, config.height / 2 + 50]
+  );
 
 // Setup for hemicycle layout: essentially a matrix at an angle
 const layout = d3_iconarray
   .layout()
-  .height(config.rows)
-  .width(config.columns)
+  .height(isMobile ? config.mobileRows : config.rows)
+  .width(isMobile ? config.mobileColumns : config.columns)
   .widthFirst(false);
 const distanceScale = d3
   .scaleLinear()
   .domain([0, layout.height()])
-  .range([100, 250]);
+  .range(isMobile ? [30, 150] : [100, 250]);
 const angleScale = d3
   .scaleLinear()
   .domain([0, layout.width()])
