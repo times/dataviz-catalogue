@@ -2,38 +2,45 @@
  * Annotation layer
  * DO uncomment further below
  *    draggable(true)
+ * @TODO: commenting out `path` for now,
+ * difficult to make it work with mobile layout
  */
 const annotations = [
   {
-    Fee: '50',
+    Fee: '53',
     Age: '25',
-    path: 'M54,-11L7,-11',
+    //path: 'M51,-1L7,5',
     text: 'Oscar',
-    textOffset: [59, -8],
+    textOffset: [0, -8],
   },
   {
-    Fee: '20',
+    Fee: '27',
     Age: '27',
-    path: 'M0,-66L0,-29',
+    //path: 'M0,-56L0,-26',
     text: 'Morgan Schneiderlin',
-    textOffset: [4, -64],
+    textOffset: [-80, 0],
   },
 ];
 
 // set config object
-const config = { width: 600, height: 450 };
+const config = { width: 600, height: 450, mobileWidth: 300, mobileHeight: 300 };
+const isMobile = window.innerWidth < 600 ? true : false;
 
 const margin = { top: 50, right: 40, bottom: 50, left: 60 },
-  width = config.width - margin.left - margin.right,
-  height = config.height - margin.top - margin.bottom;
+  width =
+    (isMobile ? config.mobileWidth : config.width) - margin.left - margin.right,
+  height =
+    (isMobile ? config.mobileHeight : config.height) -
+    margin.top -
+    margin.bottom;
 
 // Clean up before drawing
 // By brutally emptying all HTML from plot container div
 d3.select('#times-scatterplot').html('');
 
 const svg = d3.select('#times-scatterplot').at({
-  width: config.width,
-  height: config.height,
+  width: isMobile ? config.mobileWidth : config.width,
+  height: isMobile ? config.mobileHeight : config.height,
 });
 
 /*
@@ -48,7 +55,8 @@ const y = d3.scaleLinear().range([height, 0]);
 // g is our main container
 const g = svg.append('g').translate([margin.left + 20, 0]);
 
-d3.json('data.json', function(err, dataset) {
+d3.json('data.json', (err, dataset) => {
+  if (err) throw err;
   /*
    * Constrain variables to numbers
    */
@@ -75,7 +83,13 @@ d3.json('data.json', function(err, dataset) {
       class: 'axis axis--x',
     })
     .translate([0, height])
-    .call(d3.axisBottom(x).ticks(10).tickSizeInner(0).tickPadding(20));
+    .call(
+      d3
+        .axisBottom(x)
+        .ticks(isMobile ? 5 : 10)
+        .tickSizeInner(0)
+        .tickPadding(20)
+    );
 
   // text label for the x axis
   g
@@ -134,7 +148,10 @@ d3.json('data.json', function(err, dataset) {
     //.draggable(true)
     .annotations(annotations);
 
-  const swoopySel = g.append('g').attr('class', 'annotations').call(swoopy);
+  const swoopySel = g
+    .append('g')
+    .attr('class', 'annotations')
+    .call(swoopy);
 
   // SVG arrow marker fix
   // Do not change

@@ -2,7 +2,10 @@
 const config = {
   width: 500,
   height: 400,
+  mobileWidth: 300,
+  mobileHeight: 300,
 };
+const isMobile = window.innerWidth < 600 ? true : false;
 
 const dataModel = [
   {
@@ -19,9 +22,13 @@ const dataModel = [
   },
 ];
 
-const margin = { top: 30, right: 150, bottom: 50, left: 50 },
-  width = config.width - margin.left - margin.right,
-  height = config.height - margin.top - margin.bottom;
+const margin = { top: 50, right: 120, bottom: 50, left: 30 },
+  width =
+    (isMobile ? config.mobileWidth : config.width) - margin.left - margin.right,
+  height =
+    (isMobile ? config.mobileHeight : config.height) -
+    margin.top -
+    margin.bottom;
 
 // Clean up before drawing
 // By brutally emptying all HTML from plot container div
@@ -30,8 +37,8 @@ d3.select('#times-waffle').html('');
 const svg = d3
   .select('#times-waffle')
   .at({
-    width: config.width,
-    height: config.height,
+    width: isMobile ? config.mobileWidth : config.width,
+    height: isMobile ? config.mobileHeight : config.height,
   })
   .st({ backgroundColor: '#F8F7F1' });
 
@@ -45,7 +52,12 @@ for (var i = 0; i < dataModel.length; i++) {
   }
 }
 
-const grid = d3.grid().points().size([width, height]).cols(30).rows(30);
+const grid = d3
+  .grid()
+  .points()
+  .size([width, height])
+  .cols(30)
+  .rows(30);
 
 const points = g.selectAll('.circles').data(grid(seats));
 points
@@ -61,10 +73,13 @@ points
   .transition()
   .duration(100)
   .delay((d, i) => i * 3)
-  .at({ r: 4 })
+  .at({ r: isMobile ? 3 : 4 })
   .style('opacity', 1);
 
-const yScale = d3.scalePoint().domain(d3.range(30)).range([height, 0]);
+const yScale = d3
+  .scalePoint()
+  .domain(d3.range(30))
+  .range([height, 0]);
 g.append('line').at({
   x1: -10,
   y1: yScale(10) - 5,

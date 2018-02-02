@@ -9,17 +9,22 @@ const annotations = [
 ];
 
 // The config object passed by draw() gives us a width and height
-const config = { width: 600, height: 550 };
+const config = { width: 600, height: 550, mobileWidth: 300, mobileHeight: 300 };
+const isMobile = window.innerWidth < 600 ? true : false;
 const margin = { top: 30, right: 100, bottom: 100, left: 40 },
-  width = config.width - margin.left - margin.right,
-  height = config.height - margin.top - margin.bottom;
+  width =
+    (isMobile ? config.mobileWidth : config.width) - margin.left - margin.right,
+  height =
+    (isMobile ? config.mobileHeight : config.height) -
+    margin.top -
+    margin.bottom;
 
 // Clean up SVG container before drawing
 d3.select('#times-vertical-line').html('');
 
 const svg = d3.select('#times-vertical-line').at({
-  width: config.width,
-  height: config.height,
+  width: isMobile ? config.mobileWidth : config.width,
+  height: isMobile ? config.mobileHeight : config.height,
 });
 
 // Date parser
@@ -40,10 +45,7 @@ const line = d3
 const g = svg.append('g').translate([margin.left, margin.top]);
 
 d3.json('data.json', (err, dataset) => {
-  if (err) {
-    console.log(err);
-    return;
-  }
+  if (err) throw err;
 
   const processedData = dataset.map(d =>
     Object.assign({}, d, {
@@ -70,7 +72,13 @@ d3.json('data.json', (err, dataset) => {
     .append('g')
     .at({ class: 'axis axis--x' })
     .translate([30, height])
-    .call(d3.axisBottom(x).ticks(10).tickSize(-height, 0, 0).tickPadding(10));
+    .call(
+      d3
+        .axisBottom(x)
+        .ticks(isMobile ? 3 : 10)
+        .tickSize(-height, 0, 0)
+        .tickPadding(10)
+    );
 
   // text label for the x axis
   g
@@ -88,12 +96,15 @@ d3.json('data.json', (err, dataset) => {
   g
     .append('text')
     .at({ class: 'label' })
-    .translate([x(0) - 85, margin.top - 55])
+    .translate([x(0) + 90, margin.top - 55])
     .style('text-anchor', 'middle')
     .text('Received ⟶');
 
   // Y-axis
-  g.append('g').attr('class', 'axis axis--y').call(d3.axisLeft(y));
+  g
+    .append('g')
+    .attr('class', 'axis axis--y')
+    .call(d3.axisLeft(y).ticks(isMobile ? 5 : 10));
 
   // Dashed line on the zero for reference
   // Created before the spending line so it"s under
@@ -124,7 +135,12 @@ d3.json('data.json', (err, dataset) => {
     //.draggable(true)
     .annotations(annotations);
 
-  var swoopySel = g.append('g').attr('class', 'swoop').call(swoopy);
+  if (!isMobile) {
+    var swoopySel = g
+      .append('g')
+      .attr('class', 'swoop')
+      .call(swoopy);
+  }
 
   // SVG arrow marker fix
   svg

@@ -2,13 +2,20 @@
 const config = {
   width: 700,
   height: 800,
+  mobileWidth: 300,
+  mobileHeight: 800,
   ridgeHeight: 18,
   formatTime: d3.timeFormat('%Y'),
 };
+const isMobile = window.innerWidth < 600 ? true : false;
 
 const margin = { top: 30, right: 30, bottom: 50, left: 50 },
-  width = config.width - margin.left - margin.right,
-  height = config.height - margin.top - margin.bottom;
+  width =
+    (isMobile ? config.mobileWidth : config.width) - margin.left - margin.right,
+  height =
+    (isMobile ? config.mobileHeight : config.height) -
+    margin.top -
+    margin.bottom;
 
 // Y scale in each ridge
 const y = d => d.n;
@@ -45,9 +52,7 @@ const formatData = function(dataset) {
 const setupXScale = function(config) {
   // Date scale
   const x = d => d.time;
-  const xScale = d3
-    .scaleTime()
-    .range([30, config.width - margin.left - margin.right]);
+  const xScale = d3.scaleTime().range([30, width]);
   const xValue = d => xScale(x(d));
   const xAxis = d3
     .axisBottom(xScale)
@@ -113,8 +118,8 @@ d3.select('#times-joyplot').html('');
 const svg = d3
   .select('#times-joyplot')
   .at({
-    width: config.width,
-    height: config.height,
+    width: isMobile ? config.mobileWidth : config.width,
+    height: isMobile ? config.mobileHeight : config.height,
   })
   .st({ backgroundColor: '#F8F7F1' })
   .append('g')
