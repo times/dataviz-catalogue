@@ -8,5 +8,10 @@ svg {
 }
 .label {
     font-family: "GillSansW01-Medium";
-    font-size: 1em;
+    font-size: .9em;
+    fill: #898989;
+}
+.name {
+    font-weight: 400;
+    fill: black;
 }

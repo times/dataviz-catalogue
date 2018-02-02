@@ -14,29 +14,8 @@ const svg = d3.select('#times-palettes').at({
   height: config.height,
 });
 
-d3.json('palettes.json', (error, data) => {
-  if (error) throw error;
-
-  const palette = svg
-    .selectAll('g')
-    .data(data)
-    .enter()
-    .append('g')
-    .translate((d, i) => [10, i * 150 + 50]);
-
-  palette
-    .append('text')
-    .at({
-      x: 0,
-      y: 10,
-      class: 'Headline paletteTitle',
-    })
-    .text(d => {
-      console.log('d', d);
-      return d.name;
-    });
-
-  const colour = palette
+const makePalette = container => {
+  const colour = container
     .selectAll('rect')
     .data(d => d.colours)
     .enter()
@@ -56,6 +35,34 @@ d3.json('palettes.json', (error, data) => {
   colour
     .append('text')
     .at({ x: (d, i) => i * 60, y: 0, class: 'label' })
+    .text(d => d.code.toString())
+    .translate([0, config.blockWidth * 2 - 5]);
+
+  colour
+    .append('text')
+    .at({ x: (d, i) => i * 60, y: 13, class: 'label name' })
     .text(d => d.label)
     .translate([0, config.blockWidth * 2 - 5]);
+};
+
+d3.json('palettes.json', (error, data) => {
+  if (error) throw error;
+
+  const palette = svg
+    .selectAll('g')
+    .data(data)
+    .enter()
+    .append('g')
+    .translate((d, i) => [10, i * 150 + 50]);
+
+  palette
+    .append('text')
+    .at({
+      x: 0,
+      y: 10,
+      class: 'Headline paletteTitle',
+    })
+    .text(d => d.name);
+
+  palette.call(makePalette(palette));
 });
