@@ -12,7 +12,10 @@ d3.json('index.json', (error, imgs) => {
     .append('div')
     .attr('class', 'item');
 
-  divs.append('div').text(d => d.title).attr('class', 'chartTitle');
+  divs
+    .append('div')
+    .text(d => d.title)
+    .attr('class', 'chartTitle');
 
   const links = divs
     .append('a')
