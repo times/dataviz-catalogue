@@ -56,6 +56,12 @@ d3.json('palettes.json', (error, data) => {
   colour
     .append('text')
     .at({ x: (d, i) => i * 60, y: 0, class: 'label' })
+    .text(d => d.code.toString())
+    .translate([0, config.blockWidth * 2 - 5]);
+
+  colour
+    .append('text')
+    .at({ x: (d, i) => i * 60, y: 13, class: 'label name' })
     .text(d => d.label)
     .translate([0, config.blockWidth * 2 - 5]);
 });
