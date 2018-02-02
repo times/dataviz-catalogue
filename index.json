@@ -29,10 +29,15 @@
     "img": "timeline-bubbles/1.png",
     "url" : "timeline-bubbles/"
   },
-    {
+  {
     "title": "Waffle (d3)",
     "img": "waffle/1.png",
     "url" : "waffle/"
+  },
+  {
+    "title": "Joyplot (d3)",
+    "img": "joyplot/1.png",
+    "url" : "joyplot/"
   }
 
 ]
