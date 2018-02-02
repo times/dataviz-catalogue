@@ -1,14 +1,27 @@
 // set config object
-const config = { width: 700, height: 450 };
-const margin = { top: 20, left: 20, right: 150 };
-const width = config.width - margin.left - margin.right,
-  height = config.height - margin.top;
+const config = { width: 700, height: 450, mobileWidth: 300, mobileHeight: 450 };
+const isMobile = window.innerWidth < 600 ? true : false;
+
+const margin = {
+  top: 20,
+  left: 20,
+  right: 150,
+  bottom: 0,
+  mobileRight: 10,
+  mobileBottom: 100,
+};
+const width = isMobile
+    ? config.mobileWidth - margin.left - margin.mobileRight
+    : config.width - margin.left - margin.right,
+  height = isMobile
+    ? config.mobileHeight - margin.top - margin.mobileBottom
+    : config.height - margin.top - margin.bottom;
 
 d3.select('#times-treemap').html('');
 
 const svg = d3.select('#times-treemap').at({
-  width: config.width,
-  height: config.height,
+  width: isMobile ? config.mobileWidth : config.width,
+  height: isMobile ? config.mobileHeight : config.height,
 });
 
 // construct an ordinal scale from our colour palette
@@ -16,11 +29,82 @@ const timesColors = ['#254251', '#E0AB26', '#F37F2F', '#3292A6', '#6c3c5e'];
 const color = d3.scaleOrdinal(timesColors);
 const format = d3.format(',d');
 
+const makeLegend = (container, key, legendConfig) => {
+  // Create a legend element
+  const legend = container
+    .append('g')
+    .at({ class: 'legendContainer' })
+    .selectAll('g')
+    .data(key)
+    .enter()
+    .append('g')
+    .at({ class: 'legend' })
+    .attr('transform', (d, i) => {
+      const leftmargin = 0;
+      const topmargin = 0;
+      const x = leftmargin + legendConfig.x;
+      const y = i * legendConfig.height + legendConfig.y + topmargin;
+      return 'translate(' + x + ',' + y + ')';
+    });
+
+  const legendTitle = container
+    .append('g')
+    .at({ class: 'legendTitle' })
+    .attr('transform', (d, i) => {
+      const height = 20;
+      const x = legendConfig.x;
+      const y = i * height + legendConfig.y;
+      return 'translate(' + x + ',' + y + ')';
+    });
+
+  legendTitle
+    .append('text')
+    .at({ x: 0, y: 20 })
+    .text('Key');
+
+  legend
+    .append('rect')
+    .at({
+      width: 10,
+      height: 10,
+    })
+    .translate([0, 30])
+    .st({
+      fill: d => d.color,
+      stroke: d => d.color,
+    });
+
+  legend
+    .append('text')
+    .at({
+      x: 20,
+      y: 40,
+    })
+    .st({ color: '#666', fill: '#666' })
+    .text(d => d.name);
+
+  const linewidth = config.width < 400 ? width - 20 : 100;
+  const lineheight = config.width < 400 ? 90 : 110;
+  legendTitle.append('line').at({
+    x1: 0,
+    x2: linewidth,
+    y1: 0,
+    y2: 0,
+    strokeWidth: 2,
+    stroke: '#ddd',
+  });
+  legendTitle.append('line').at({
+    x1: 0,
+    x2: linewidth,
+    y1: lineheight,
+    y2: lineheight,
+    strokeWidth: 2,
+    stroke: '#ddd',
+  });
+};
+
 d3.json('data.json', (err, dataset) => {
-  if (err) {
-    console.log(err);
-    return;
-  }
+  if (err) throw err;
 
   const treemap = d3
     .treemap()
@@ -70,7 +154,11 @@ d3.json('data.json', (err, dataset) => {
         });
     })
     .on('mouseout', function(d) {
-      d3.selectAll('rect').transition().duration(500).style('opacity', 1);
+      d3
+        .selectAll('rect')
+        .transition()
+        .duration(500)
+        .style('opacity', 1);
     })
     .on('click', function(d) {
       appendPlayerInfo(this, d);
@@ -122,136 +210,72 @@ d3.json('data.json', (err, dataset) => {
   ];
 
   let legendConfig = {
-    x: width + 10,
-    y: 10,
+    x: isMobile ? 10 : width + 10,
+    y: isMobile ? height : 10,
     height: 20,
   };
 
-  // Create a legend element
-  const legend = container
-    .append('g')
-    .at({ class: 'legendContainer' })
-    .selectAll('g')
-    .data(key)
-    .enter()
-    .append('g')
-    .at({ class: 'legend' })
-    .attr('transform', (d, i) => {
-      const leftmargin = 0;
-      const topmargin = 0;
-      const x = leftmargin + legendConfig.x;
-      const y = i * legendConfig.height + legendConfig.y + topmargin;
-      return 'translate(' + x + ',' + y + ')';
-    });
+  container.call(makeLegend(container, key, legendConfig));
 
-  const legendTitle = container
-    .append('g')
-    .at({ class: 'legendTitle' })
-    .attr('transform', (d, i) => {
-      const height = 20;
-      const x = legendConfig.x;
-      const y = i * height + legendConfig.y;
-      return 'translate(' + x + ',' + y + ')';
-    });
+  // // Create a legend element
+  // const titleheight = height;
+  // const titlemargin = 30;
+  // const playerInfoContainer = svg
+  //   .append('g')
+  //   .attr('class', 'playerInfoContainer')
+  //   .selectAll('g')
+  //   .data(key)
+  //   .enter()
+  //   .append('g')
+  //   .attr('class', 'playerInfo')
+  //   .translate((d, i) => {
+  //     return [legendConfig.x, i * titleheight + 10];
+  //   });
 
-  legendTitle.append('text').at({ x: 0, y: 20 }).text('Key');
+  // const playerInfoTitle = svg
+  //   .append('g')
+  //   .attr('class', 'playerInfoTitle')
+  //   .translate([legendConfig.x, titleheight * 0.3 + titlemargin]);
 
-  legend
-    .append('rect')
-    .at({
-      width: 10,
-      height: 10,
-    })
-    .translate([0, 30])
-    .st({
-      fill: d => d.color,
-      stroke: d => d.color,
-    });
+  // playerInfoTitle
+  //   .append('text')
+  //   .attr('x', 0)
+  //   .attr('y', 0);
 
-  legend
-    .append('text')
-    .at({
-      x: 20,
-      y: 40,
-    })
-    .st({ color: '#666', fill: '#666' })
-    .text(d => d.name);
+  // const playerInfo = svg
+  //   .append('g')
+  //   .attr('class', 'playerInfo')
+  //   .translate([legendConfig.x, titleheight * 0.3 + titlemargin + 30]);
 
-  const linewidth = config.width < 400 ? width - 20 : 100;
-  const lineheight = config.width < 400 ? 90 : 110;
-  legendTitle.append('line').at({
-    x1: 0,
-    x2: linewidth,
-    y1: 0,
-    y2: 0,
-    strokeWidth: 2,
-    stroke: '#ddd',
-  });
-  legendTitle.append('line').at({
-    x1: 0,
-    x2: linewidth,
-    y1: lineheight,
-    y2: lineheight,
-    strokeWidth: 2,
-    stroke: '#ddd',
-  });
+  // playerInfo
+  //   .append('text')
+  //   .at({
+  //     class: 'playerInfo',
+  //     x: 0,
+  //     y: 10,
+  //   })
+  //   .tspans(() => d3.wordwrap('Tap an area for more information', 20));
 
-  // Create a legend element
-  const titleheight = height;
-  const titlemargin = 30;
-  const playerInfoContainer = svg
-    .append('g')
-    .attr('class', 'playerInfoContainer')
-    .selectAll('g')
-    .data(key)
-    .enter()
-    .append('g')
-    .attr('class', 'playerInfo')
-    .translate((d, i) => {
-      return [legendConfig.x, i * titleheight + 10];
-    });
+  // // Appends player info on click on a rect
+  // const appendPlayerInfo = (obj, data) => {
+  //   playerInfoTitle.html('');
+  //   playerInfo.html('');
 
-  const playerInfoTitle = svg
-    .append('g')
-    .attr('class', 'playerInfoTitle')
-    .translate([legendConfig.x, titleheight * 0.3 + titlemargin]);
+  //   playerInfo.append('text').at({ x: 0, y: 0, class: 'playerInfo' });
 
-  playerInfoTitle.append('text').attr('x', 0).attr('y', 0);
-
-  const playerInfo = svg
-    .append('g')
-    .attr('class', 'playerInfo')
-    .translate([legendConfig.x, titleheight * 0.3 + titlemargin + 30]);
-
-  playerInfo
-    .append('text')
-    .at({
-      class: 'playerInfo',
-      x: 0,
-      y: 10,
-    })
-    .tspans(() => d3.wordwrap('Tap an area for more information', 20));
-
-  // Appends player info on click on a rect
-  const appendPlayerInfo = (obj, data) => {
-    playerInfoTitle.html('');
-    playerInfo.html('');
-
-    playerInfo.append('text').at({ x: 0, y: 0, class: 'playerInfo' });
-
-    playerInfoTitle
-      .append('text')
-      .at({ y: 0 })
-      .text('£' + data.data.fee.split('.')[0] + 'm');
-    playerInfo
-      .append('text')
-      .at({ y: -25 })
-      .tspans(() => {
-        const { name, fromto } = data.data;
-        return d3.wordwrap(name + ' ' + fromto, 15);
-      })
-      .attr('dy', (d, i) => i + 15);
-  };
+  //   playerInfoTitle
+  //     .append('text')
+  //     .at({ y: 0 })
+  //     .text('£' + data.data.fee.split('.')[0] + 'm');
+  //   playerInfo
+  //     .append('text')
+  //     .at({ y: -25 })
+  //     .tspans(() => {
+  //       const { name, fromto } = data.data;
+  //       return d3.wordwrap(name + ' ' + fromto, 15);
+  //     })
+  //     .attr('dy', (d, i) => i + 15);
+  // };
 });
 
 const sumBySize = d => d.fee;
