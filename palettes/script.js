@@ -27,11 +27,7 @@ function onHover(duration, type) {
         )
         .attrTween('height', () =>
           d3.interpolate(config.blockWidth, config.blockWidth + 2)
-        )
-        .at({
-          rx: 30,
-          ry: 30,
-        });
+        );
     } else if (type === 'mouseout') {
       d3
         .select(this)
