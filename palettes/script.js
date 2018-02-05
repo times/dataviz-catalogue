@@ -48,6 +48,15 @@ function onHover(duration, type) {
           rx: 2,
           ry: 2,
         });
+    } else if (type === 'click') {
+      d3
+        .select(this)
+        .transition()
+        .duration(duration)
+        .style('opacity', 0.2)
+        .transition()
+        .duration(200)
+        .style('opacity', 0.6);
     }
   };
 }
@@ -75,16 +84,7 @@ const makePalette = container => {
     .style('fill', d => d.code)
     .on('mouseover', onHover(100, 'mouseover'))
     .on('mouseout', onHover(200, 'mouseout'))
-    .on('click', function() {
-      d3
-        .select(this)
-        .transition()
-        .duration(20)
-        .style('opacity', 0.2)
-        .transition()
-        .duration(200)
-        .style('opacity', 0.6);
-    });
+    .on('click', onHover(20, 'click'));
 
   colour
     .append('text')
