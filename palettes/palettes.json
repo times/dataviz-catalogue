@@ -39,6 +39,16 @@
       {"code": "#4990E2", "label": "afd"}
     ]
   },{
+    "name": "Italy's main political parties",
+    "colours": [
+      { "label": "dp", "code": "#E45B5B"},
+      { "label": "5sm", "code": "#F3D92B"},
+      { "label": "forza", "code": "#4894D2"},
+      { "label": "nleague", "code": "#65BDA2"},
+      { "label": "LeU", "code": "#700000"},
+      { "label": "brothers", "code": "#1d24bf"}
+	  ]
+  },{
     "name": "US main political parties",
     "colours": [
       {"code": "#015b90","label": "D"},
