@@ -39,6 +39,16 @@
       {"code": "#4990E2", "label": "afd"}
     ]
   },{
+    "name": "Italy's main political parties",
+    "colours": [
+      { "label": "dp", "code": "#E45B5B"},
+      { "label": "5sm", "code": "#F3D92B"},
+      { "label": "forza", "code": "#4894D2"},
+      { "label": "nleague", "code": "#65BDA2"},
+      { "label": "LeU", "code": "#700000"},
+      { "label": "brothers", "code": "#1d24bf"}
+	  ]
+  },{
     "name": "US main political parties",
     "colours": [
       {"code": "#015b90","label": "D"},
@@ -70,6 +80,24 @@
       {"code": "#DADA8B","label": ""},
       {"code": "#86A7BF","label": ""},
       {"code": "#E1E4E5","label": ""}
+	  ]
+  },{
+    "name": "Section colours",
+    "colours": [
+      {"code": "#13354e","label": "news"},
+      {"code": "#850029","label": "comment"},
+      {"code": "#636c17","label": "world"},
+      {"code": "#005b8d","label": "business"},
+      {"code": "#bc3385","label": "style"},
+      {"code": "#6c6c69","label": "register"},
+      {"code": "#008347","label": "sport"},
+      {"code": "#c74600","label": "puzzles"},
+      {"code": "#622956","label": "t2"},
+      {"code": "#006469","label": "the game"},
+      {"code": "#40001c","label": "bricks"},
+      {"code": "#a31d24","label": "sat review"},
+      {"code": "#05829a","label": "weekend"},
+      {"code": "#691d26","label": "law"}
 	  ]
   }
 ]
