@@ -70,6 +70,32 @@ d3.json('data.json', (err, dataset) => {
         .tickSizeInner(70)
     );
 
+  // Annotation layer
+  const annotations = [
+    {
+      type: d3.annotation.annotationLabel,
+      note: {
+        title: 'Something something annotated',
+        label: '',
+        wrap: 130,
+      },
+      x: x(new Date('2017-08-07')),
+      y: config.yTranslation,
+      dy: isMobile ? -30 : -90,
+      dx: 0,
+    },
+  ];
+
+  // Include annotations
+  const makeAnnotations = d3
+    .annotation()
+    .type(d3.annotationLabel)
+    .annotations(annotations);
+  g
+    .append('g')
+    .attr('class', 'annotation-group')
+    .call(makeAnnotations);
+
   /*
    * The little things:
    * by sorting this way, the largest bubbles are
