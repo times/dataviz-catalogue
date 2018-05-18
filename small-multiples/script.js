@@ -4,10 +4,11 @@
 const dataset = [];
 const labels = ['rock', 'pop', 'electro', 'world', 'folk', 'hip hop'];
 labels.map(function(symbol) {
+  const parseDate = d3.timeParse('%Y');
   for (var i = 2008; i < 2017; i++) {
     dataset.push({
       symbol: symbol,
-      date: i,
+      date: parseDate(i),
       price: Math.floor(Math.random() * 80) + 1,
     });
   }
@@ -18,13 +19,14 @@ const width = document
   .getBoundingClientRect().width;
 const config = {
   parseDate: d3.timeParse('%Y'),
-  chartWidth: width < 450 ? width * 0.7 : width / 3,
-  chartHeight: 100,
-  chartMargin: { top: 20, right: 0, bottom: 10, left: 20 },
+  chartWidth: width < 450 ? width * 0.7 : width / 4,
+  chartHeight: 120,
+  chartMargin: { top: 5, right: 40, bottom: 30, left: 20 },
   area: d3.area().curve(d3.curveStep),
   line: d3.line().curve(d3.curveStep),
   xScale: d3.scaleTime(),
   yScale: d3.scaleLinear(),
+  xAxis: d3.axisBottom().tickSizeInner(10),
 };
 
 const usableWidth =
@@ -48,11 +50,13 @@ function makeSmallChart(d, i) {
     .domain(d3.extent(values, d => d.price))
     .range([usableHeight, 0]);
 
+  const xAxis = config.xAxis.scale(config.xScale);
+
   const line = config.line.x(d => xScale(d.date)).y(d => yScale(d.price));
   const area = config.area
     .x(d => xScale(d.date))
     .y1(d => yScale(d.price))
-    .y0(yScale(0));
+    .y0(yScale(d3.min(values, d => d.price)));
 
   const chart = d3
     .select(this)
@@ -66,6 +70,11 @@ function makeSmallChart(d, i) {
     d: line(d.values),
     class: 'line',
   });
+  chart
+    .append('g')
+    .at({ class: 'x axis' })
+    .translate([0, usableHeight])
+    .call(config.xAxis.ticks(3));
 }
 
 d3
