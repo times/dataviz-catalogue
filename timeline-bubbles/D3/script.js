@@ -12,7 +12,7 @@ const config = {
   parseTime: d3.timeParse('%d/%m/%Y'),
   area: d3.scaleSqrt().domain([0, 200]),
   xScale: d3.scaleLinear(),
-  bubbleOpacity: 0.2,
+  bubbleOpacity: 0.6,
   get yTranslation() {
     return isMobile ? config.height / 4 : config.height / 2;
   },
@@ -45,9 +45,9 @@ d3.json('data.json', (err, dataset) => {
   if (err) throw err;
 
   // Map over the data to process it, return a fresh copy, rather than mutating the original data
-  const processedData = dataset.map(d =>
-    Object.assign({}, d, { date: config.parseTime(d.Date) })
-  );
+  const processedData = dataset
+    .map(d => Object.assign({}, d, { date: config.parseTime(d.Date) }))
+    .sort((x, y) => d3.descending(x.Fee, y.Fee));
 
   /*
    * Scales
