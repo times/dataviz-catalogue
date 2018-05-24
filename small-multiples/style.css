@@ -1,9 +1,10 @@
 .container {
     margin: 0 auto;
     padding: 25px;
+    padding-left: 15%;
     background-color: #f8f7f1;
     width: 700px;
-    height: 350px;
+    height: 400px;
     display: flex;
     flex-wrap: wrap;
 }

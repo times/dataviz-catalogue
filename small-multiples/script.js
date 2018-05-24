@@ -19,7 +19,7 @@ const width = document
   .getBoundingClientRect().width;
 const config = {
   parseDate: d3.timeParse('%Y'),
-  chartWidth: width < 450 ? width * 0.7 : width / 4,
+  chartWidth: width < 450 ? width * 0.7 : width / 3,
   chartHeight: 120,
   chartMargin: { top: 5, right: 40, bottom: 30, left: 20 },
   area: d3.area().curve(d3.curveStep),

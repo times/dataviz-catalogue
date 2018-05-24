@@ -116,6 +116,7 @@ d3.json('data.json', (err, dataset) => {
       cy: config.yTranslation,
     })
     .transition()
+    .delay((d, i) => i * 50)
     .attr('r', d => area(d.Fee))
     .st({ opacity: config.bubbleOpacity });
 });
