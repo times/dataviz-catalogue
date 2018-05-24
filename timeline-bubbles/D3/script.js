@@ -10,7 +10,7 @@ const config = {
   circleRadius: 70,
   mobileCircleRadius: 40,
   parseTime: d3.timeParse('%d/%m/%Y'),
-  area: d3.scaleSqrt().domain([0, 200]),
+  area: d3.scaleSqrt().domain([0, 300]),
   xScale: d3.scaleLinear(),
   bubbleOpacity: 0.6,
   get yTranslation() {
