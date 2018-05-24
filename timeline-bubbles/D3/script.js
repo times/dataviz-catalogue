@@ -1,4 +1,5 @@
 // set config object
+const isMobile = window.innerWidth < 600 ? true : false;
 const config = {
   width: 600,
   height: 350,
@@ -8,8 +9,14 @@ const config = {
   mobileTicksCount: 3,
   circleRadius: 70,
   mobileCircleRadius: 40,
+  parseTime: d3.timeParse('%d/%m/%Y'),
+  area: d3.scaleSqrt().domain([0, 200]),
+  xScale: d3.scaleLinear(),
+  bubbleOpacity: 0.2,
+  get yTranslation() {
+    return isMobile ? config.height / 4 : config.height / 2;
+  },
 };
-const isMobile = window.innerWidth < 600 ? true : false;
 
 const margin = { top: 40, right: 100, bottom: 30, left: 20 },
   width =
@@ -37,31 +44,27 @@ const g = svg.append('g').translate([margin.left, margin.top]);
 d3.json('data.json', (err, dataset) => {
   if (err) throw err;
 
-  // Constrain to dates
-  const parseTime = d3.timeParse('%d/%m/%Y');
   // Map over the data to process it, return a fresh copy, rather than mutating the original data
   const processedData = dataset.map(d =>
-    Object.assign({}, d, { date: parseTime(d.Date) })
+    Object.assign({}, d, { date: config.parseTime(d.Date) })
   );
 
   /*
    * Scales
    * note that we use give an area to d3's radius parameter
    */
-  const area = d3
-    .scaleSqrt()
-    .range([3, isMobile ? config.mobileCircleRadius : config.circleRadius])
-    .domain([0, 200]);
-  const x = d3
-    .scaleLinear()
+  const area = config.area.range([
+    3,
+    isMobile ? config.mobileCircleRadius : config.circleRadius,
+  ]);
+  const x = config.xScale
     .range([0, width])
-    .domain([0, processedData.length]);
-  x.domain(d3.extent(processedData, d => d.date));
+    .domain(d3.extent(processedData, d => d.date));
 
   // X-axis
   g
     .append('g')
-    .translate([0, isMobile ? height / 4 : height / 2])
+    .translate([0, config.yTranslation])
     .call(
       d3
         .axisBottom(x)
@@ -69,6 +72,32 @@ d3.json('data.json', (err, dataset) => {
         .tickFormat(d3.timeFormat('%d %b'))
         .tickSizeInner(70)
     );
+
+  // Annotation layer
+  const annotations = [
+    {
+      type: d3.annotation.annotationLabel,
+      note: {
+        title: 'Something something annotated',
+        label: '',
+        wrap: 130,
+      },
+      x: x(new Date('2017-08-07')),
+      y: config.yTranslation,
+      dy: isMobile ? -30 : -90,
+      dx: 0,
+    },
+  ];
+
+  // Include annotations
+  const makeAnnotations = d3
+    .annotation()
+    .type(d3.annotationLabel)
+    .annotations(annotations);
+  g
+    .append('g')
+    .attr('class', 'annotation-group')
+    .call(makeAnnotations);
 
   /*
    * The little things:
@@ -84,9 +113,9 @@ d3.json('data.json', (err, dataset) => {
     .at({
       class: 'circle',
       cx: d => x(d.date),
-      cy: isMobile ? height / 4 : height / 2,
+      cy: config.yTranslation,
     })
     .transition()
     .attr('r', d => area(d.Fee))
-    .st({ opacity: 0.2 });
+    .st({ opacity: config.bubbleOpacity });
 });

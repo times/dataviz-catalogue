@@ -1,8 +1,8 @@
 svg {
-  margin: 0 auto;
-  padding: 25px;
-  background-color: #f8f7f1;
-  display: flex;
+    margin: 0 auto;
+    padding: 25px;
+    background-color: #f8f7f1;
+    display: flex;
 }
 
 .tick line {
@@ -16,3 +16,26 @@ path.domain {
 }
 
 circle.circle { fill: #254251; stroke: #F9F8F3; }
+
+.annotation path, .annotation-connector {
+    stroke: #E0AB26;
+    stroke-width: 2px;
+    fill: none;
+}
+.annotation path.connector-arrow, 
+.annotation path.connector-dot, 
+.title text, .annotation text {
+    fill: #E0AB26;
+    font: 13px GillSansMTStd-Medium, GillSansW01-Medium;;
+    fill: #696969;
+    color: #696969;
+}
+.annotation-note-bg {
+    fill: rgba(0, 0, 0, 0);
+}
+.annotation-note-title, text.title {
+    font: 13px GillSansMTStd-Medium, GillSansW01-Medium;;
+    fill: #696969;
+    color: #696969;
+}
+.annotation-note-content line { dispay: none; }
