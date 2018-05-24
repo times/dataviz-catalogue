@@ -13,6 +13,9 @@ const config = {
   area: d3.scaleSqrt().domain([0, 200]),
   xScale: d3.scaleLinear(),
   bubbleOpacity: 0.2,
+  get yTranslation() {
+    return isMobile ? config.height / 4 : config.height / 2;
+  },
 };
 
 const margin = { top: 40, right: 100, bottom: 30, left: 20 },
@@ -23,10 +26,9 @@ const margin = { top: 40, right: 100, bottom: 30, left: 20 },
     margin.top -
     margin.bottom;
 
-(config.yTranslation = isMobile ? height / 4 : height / 2),
-  // Clean up before drawing
-  // By brutally emptying all HTML from plot container div
-  d3.select('#times-timeline').html('');
+// Clean up before drawing
+// By brutally emptying all HTML from plot container div
+d3.select('#times-timeline').html('');
 
 const svg = d3
   .select('#times-timeline')
