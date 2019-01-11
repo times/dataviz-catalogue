@@ -1,56 +1,80 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="https://www.thetimes.co.uk/d/styles/main.min-1de427e813.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" type="image/png" href="favicon.png">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://www.thetimes.co.uk/d/styles/main.min-1de427e813.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="favicon.png" />
 
-        <title>The Times | data viz catalogue</title>
+    <title>The Times | data viz catalogue</title>
 
+    <link
+      rel="stylesheet"
+      href="https://fonts.timesdev.tools/fonts/GillSansW01-Medium.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.timesdev.tools/fonts/TimesDigital-Regular.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.timesdev.tools/fonts/TimesModern-Bold.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.timesdev.tools/fonts/TimesModern-Regular.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <img src="./dual-masthead.svg" width="250" />
 
-        <link rel="stylesheet" href="https://fonts.timesdev.tools/fonts/GillSansW01-Medium.css" />
-        <link rel="stylesheet" href="https://fonts.timesdev.tools/fonts/TimesDigital-Regular.css" />
-        <link rel="stylesheet" href="https://fonts.timesdev.tools/fonts/TimesModern-Bold.css" />
-        <link rel="stylesheet" href="https://fonts.timesdev.tools/fonts/TimesModern-Regular.css" />
-        <link rel="stylesheet" href="style.css"/>
-    </head>
-    <body>
-        <div class="sidebar">
-            <img src="./dual-masthead.svg" width="250" />
+      <div class="section">
+        <p>Click on one of the charts to go to its demo page.</p>
+        <p>
+          To see the code, view the source, open your devtools, or go to
+          <a href="https://github.com/times/dataviz-catalogue"
+            >our public Github repository.</a
+          >
+        </p>
+        <p>
+          Some implementations are available in D3.js and R, as well as in
+          Blockbuilder, D3.js' leading online editor.
+        </p>
+      </div>
 
-            <div class="section">
-                    <p>
-                        Click on one of the charts to go to its demo page.
-                    </p>
-                    <p>
-                        To see the code, view the source, open your devtools, or go to <a href="https://github.com/times/dataviz-catalogue">our public Github repository.</a>
-                    </p>
-                    <p>
-                        Some implementations are available in D3.js and R, as well as in Blockbuilder, D3.js' leading online editor.
-                    </p>
-            </div>
+      <div class="Byline">
+        Created by Basile Simon
+        <span class="team">and the Times Digital team</span>
+      </div>
+    </div>
+    <div class="wrapper">
+      <h1 class="Headline">
+        Data visualisation catalogue
+        <a
+          class="github-button"
+          href="https://github.com/times/dataviz-catalogue"
+          data-icon="octicon-star"
+          data-size="large"
+          data-show-count="true"
+          aria-label="Star times/dataviz-catalogue on GitHub"
+          >Star</a
+        >
+      </h1>
+      <p class="Dip">A public resource of data viz code and designs</p>
 
-            <div class="Byline">Created by Basile Simon
-                <span class="team">and the Times Digital team</span></div>
-        </div>
-        <div class="wrapper">
-            <h1 class="Headline">
-                Data visualisation catalogue
-                <a class="github-button" href="https://github.com/times/dataviz-catalogue" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star times/dataviz-catalogue on GitHub">Star</a>
-            </h1>
-            <p class="Dip">
-                A public resource of data viz code and designs
-            </p>
+      <div id="container"></div>
+    </div>
 
-            <div id="container"></div>
-        </div>
-
-        <script async defer src="https://buttons.github.io/buttons.js"></script>
-        <script src="https://unpkg.com/d3@4.13"></script>
-        <script src="https://unpkg.com/d3-dispatch"></script>
-        <script src="https://unpkg.com/d3-selection"></script>
-        <script src="https://unpkg.com/d3-collection"></script>
-        <script type="text/javascript" src="app.js"></script>
-</body>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+    <script src="https://unpkg.com/d3-dispatch"></script>
+    <script src="https://unpkg.com/d3-selection"></script>
+    <script src="https://unpkg.com/d3-collection"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
 </html>
