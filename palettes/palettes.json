@@ -2,102 +2,109 @@
   {
     "name": "Times Digital main colours",
     "colours": [
-      {"code": "#254251", "label": ""},
-      {"code": "#e0ab26", "label": ""},
-      {"code": "#80b1e2", "label": ""},
-      {"code": "#f37f2f", "label": ""},
-      {"code": "#3292a6", "label": ""},
-      {"code": "#6c3c5e", "label": ""},
-      {"code": "#dacfc1", "label": ""},
-      {"code": "#96807a", "label": ""}
+      { "code": "#254251", "label": "" },
+      { "code": "#e0ab26", "label": "" },
+      { "code": "#80b1e2", "label": "" },
+      { "code": "#f37f2f", "label": "" },
+      { "code": "#3292a6", "label": "" },
+      { "code": "#6c3c5e", "label": "" },
+      { "code": "#dacfc1", "label": "" },
+      { "code": "#96807a", "label": "" }
     ]
-  },{
+  },
+  {
     "name": "UK political parties",
     "colours": [
-      {"code": "#4093B2", "label": "con"},
-      {"code": "#EC5156", "label": "lab"},
-      {"code": "#F6C55E", "label": "libdem"},
-      {"code": "#9767AE", "label": "ukip"},
-      {"code": "#FFF685", "label": "snp"},
-      {"code": "#61A961", "label": "green"},
-      {"code": "#90CD7C", "label": "pc"},
-      {"code": "#A15252", "label": "dup"},
-      {"code": "#44966B", "label": "sf"},
-      {"code": "#7DA17D", "label": "sdlp"},
-      {"code": "#3F617C", "label": "uup"},
-      {"code": "#A0938F", "label": "others"}
+      { "code": "#4093B2", "label": "con" },
+      { "code": "#EC5156", "label": "lab" },
+      { "code": "#EAAA00", "label": "libdem" },
+      { "code": "#9767AE", "label": "ukip" },
+      { "code": "#F6D700", "label": "snp" },
+      { "code": "#61A961", "label": "green" },
+      { "code": "#90CD7C", "label": "pc" },
+      { "code": "#A15252", "label": "dup" },
+      { "code": "#44966B", "label": "sf" },
+      { "code": "#7DA17D", "label": "sdlp" },
+      { "code": "#3F617C", "label": "uup" },
+      { "code": "#A0938F", "label": "others" }
     ]
-  },{
+  },
+  {
     "name": "German main political parties",
     "colours": [
-      {"code": "#000", "label": "cdu/csu"},
-      {"code": "#EB001F", "label": "spd"},
-      {"code": "#8C3473", "label": "left"},
-      {"code": "#58AB27", "label": "greens"},
-      {"code": "#F0D034", "label": "fdp"},
-      {"code": "grey", "label": "ind"},
-      {"code": "#4990E2", "label": "afd"}
+      { "code": "#000", "label": "cdu/csu" },
+      { "code": "#EB001F", "label": "spd" },
+      { "code": "#8C3473", "label": "left" },
+      { "code": "#58AB27", "label": "greens" },
+      { "code": "#F0D034", "label": "fdp" },
+      { "code": "grey", "label": "ind" },
+      { "code": "#4990E2", "label": "afd" }
     ]
-  },{
+  },
+  {
     "name": "Italy main political parties",
     "colours": [
-      { "label": "dp", "code": "#E45B5B"},
-      { "label": "5sm", "code": "#F3D92B"},
-      { "label": "forza", "code": "#4894D2"},
-      { "label": "nleague", "code": "#65BDA2"},
-      { "label": "LeU", "code": "#700000"},
-      { "label": "brothers", "code": "#1d24bf"}
-	  ]
-  },{
+      { "label": "dp", "code": "#E45B5B" },
+      { "label": "5sm", "code": "#F3D92B" },
+      { "label": "forza", "code": "#4894D2" },
+      { "label": "nleague", "code": "#65BDA2" },
+      { "label": "LeU", "code": "#700000" },
+      { "label": "brothers", "code": "#1d24bf" }
+    ]
+  },
+  {
     "name": "US main political parties",
     "colours": [
-      {"code": "#015b90","label": "D"},
-      {"code": "#ff1c18","label": "R"}
-	  ]
-  },{
+      { "code": "#015b90", "label": "D" },
+      { "code": "#ff1c18", "label": "R" }
+    ]
+  },
+  {
     "name": "Sequential blue",
     "colours": [
-      {"code": "#074467","label": ""},
-      {"code": "#15618a","label": ""},
-      {"code": "#2473a3","label": ""},
-      {"code": "#528ab7","label": ""},
-      {"code": "#74a9cf","label": ""},
-      {"code": "#91b9d5","label": ""},
-      {"code": "#aecce2","label": ""},
-      {"code": "#c1d7ea","label": ""},
-      {"code": "#e0e7f1","label": ""},
-      {"code": "#ebeff5","label": ""}
-	  ]
-  },{
+      { "code": "#074467", "label": "" },
+      { "code": "#15618a", "label": "" },
+      { "code": "#2473a3", "label": "" },
+      { "code": "#528ab7", "label": "" },
+      { "code": "#74a9cf", "label": "" },
+      { "code": "#91b9d5", "label": "" },
+      { "code": "#aecce2", "label": "" },
+      { "code": "#c1d7ea", "label": "" },
+      { "code": "#e0e7f1", "label": "" },
+      { "code": "#ebeff5", "label": "" }
+    ]
+  },
+  {
     "name": "Bivariate",
     "colours": [
-      {"code": "#005415","label": ""},
-      {"code": "#7C8E1D","label": ""},
-      {"code": "#00594F","label": ""},
-      {"code": "#E0CD24","label": ""},
-      {"code": "#78966E","label": ""},
-      {"code": "#016389","label": ""},
-      {"code": "#DADA8B","label": ""},
-      {"code": "#86A7BF","label": ""},
-      {"code": "#E1E4E5","label": ""}
-	  ]
-  },{
+      { "code": "#005415", "label": "" },
+      { "code": "#7C8E1D", "label": "" },
+      { "code": "#00594F", "label": "" },
+      { "code": "#E0CD24", "label": "" },
+      { "code": "#78966E", "label": "" },
+      { "code": "#016389", "label": "" },
+      { "code": "#DADA8B", "label": "" },
+      { "code": "#86A7BF", "label": "" },
+      { "code": "#E1E4E5", "label": "" }
+    ]
+  },
+  {
     "name": "Section colours",
     "colours": [
-      {"code": "#13354e","label": "news"},
-      {"code": "#850029","label": "comment"},
-      {"code": "#636c17","label": "world"},
-      {"code": "#005b8d","label": "business"},
-      {"code": "#bc3385","label": "style"},
-      {"code": "#6c6c69","label": "register"},
-      {"code": "#008347","label": "sport"},
-      {"code": "#c74600","label": "puzzles"},
-      {"code": "#622956","label": "t2"},
-      {"code": "#006469","label": "the game"},
-      {"code": "#40001c","label": "bricks"},
-      {"code": "#a31d24","label": "sat review"},
-      {"code": "#05829a","label": "weekend"},
-      {"code": "#691d26","label": "law"}
-	  ]
+      { "code": "#13354e", "label": "news" },
+      { "code": "#850029", "label": "comment" },
+      { "code": "#636c17", "label": "world" },
+      { "code": "#005b8d", "label": "business" },
+      { "code": "#bc3385", "label": "style" },
+      { "code": "#6c6c69", "label": "register" },
+      { "code": "#008347", "label": "sport" },
+      { "code": "#c74600", "label": "puzzles" },
+      { "code": "#622956", "label": "t2" },
+      { "code": "#006469", "label": "the game" },
+      { "code": "#40001c", "label": "bricks" },
+      { "code": "#a31d24", "label": "sat review" },
+      { "code": "#05829a", "label": "weekend" },
+      { "code": "#691d26", "label": "law" }
+    ]
   }
 ]
