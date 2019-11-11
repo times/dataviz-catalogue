@@ -107,5 +107,18 @@
       { "code": "#05829a", "label": "weekend" },
       { "code": "#691d26", "label": "law" }
     ]
+  },
+  {
+    "name": "Good to bad",
+    "colours": [
+      { "code": "#2AA818", "label": "Good" },
+      { "code": "#6BA519", "label": "" },
+      { "code": "#99A31A", "label": "" },
+      { "code": "#AFA41C", "label": "" },
+      { "code": "#B79730", "label": "" },
+      { "code": "#AA691A", "label": "" },
+      { "code": "#A8461B", "label": "" },
+      { "code": "#AF1722", "label": "Bad" }
+    ]
   }
 ]
