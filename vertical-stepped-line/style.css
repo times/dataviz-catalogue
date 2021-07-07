@@ -3,11 +3,11 @@ svg {
   padding: 25px;
   overflow: visible;
   display: flex;
-  background-color: #f7f8f1;
+  background-color: #f8f7f1;
 }
 
 .axis, .axis text, text {
-  font: 15px arial;
+    font: 15px GillSansMTStd-Medium, GillSansW01-Medium;
   fill: #666;
   color: #666;
 }
@@ -35,13 +35,25 @@ svg {
   stroke-width: 1px;
   stroke-dasharray: 5;
 }
-
-.swoop path {
-  fill: none;
-  stroke: #F37F2F;
-  stroke-width: 2px;
+.annotation path, .annotation-connector {
+    stroke: #E0AB26;
+    stroke-width: 2px;
+    fill: none;
 }
-.swoop text {
-  color:#F37F2F;
-  fill:#F37F2F;
+.annotation path.connector-arrow, 
+.annotation path.connector-dot, 
+.title text, .annotation text {
+    fill: #E0AB26;
+    font: 13px GillSansMTStd-Medium, GillSansW01-Medium;
+    fill: #696969;
+    color: #696969;
 }
+.annotation-note-bg {
+    fill: rgba(0, 0, 0, 0);
+}
+.annotation-note-title, text.title {
+    font: 13px GillSansMTStd-Medium, GillSansW01-Medium;
+    fill: #696969;
+    color: #696969;
+}
+.annotation-note-content line { dispay: none; }
