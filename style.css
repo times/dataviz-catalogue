@@ -13,11 +13,18 @@ body {
     flex-direction: column;
     padding-bottom: 5rem;
 }
+
 .wrapper {
     width: 75%;
     margin-left: 25%;
 }
-.sidebar,
+
+.sidebar {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 5rem;
+}
+
 .wrapper {
     padding-left: 4rem;
     padding-right: 4rem;
@@ -28,10 +35,12 @@ body {
     body {
         flex-direction: column;
     }
+
     .sidebar,
     .wrapper {
         width: 100%;
     }
+
     .sidebar {
         height: 32rem;
         bottom: 0;
@@ -40,6 +49,7 @@ body {
         position: relative;
         order: 2;
     }
+
     .wrapper {
         margin-left: 0;
         padding-right: 1em;
@@ -61,11 +71,12 @@ body {
     align-items: center;
 }
 
-.Headline > span {
-  margin: 0 0 0 auto;
+.Headline>span {
+    margin: 0 0 0 auto;
 }
 
 @media screen and (max-width: 767px) {
+
     .Headline,
     .Standfirst {
         text-align: center;
@@ -91,9 +102,11 @@ body {
         line-height: 1em;
         margin-bottom: 0.2em;
     }
+
     .Headline iframe {
         display: none;
     }
+
     .Dip {
         font-size: 1.1em;
     }
@@ -128,6 +141,7 @@ img {
     background-color: #f8f7f1;
     width: 300px;
 }
+
 @media screen and (min-width: 768px) {
     .item {
         margin-right: 1em;
@@ -143,7 +157,8 @@ img {
     padding-top: 3em;
     color: #fff;
 }
-.section > p {
+
+.section>p {
     font-family: "GillSansW01-Medium";
     margin: 1rem 0 1rem 0;
     opacity: 0.8;
@@ -166,6 +181,7 @@ img {
     width: 90%;
     margin: auto 0 0;
 }
+
 .team {
     font-family: "GillSansW01-Medium";
     font-size: 0.8em;
