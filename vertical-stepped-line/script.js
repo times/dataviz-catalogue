@@ -1,23 +1,25 @@
-const annotations = [
-  {
-    value: -100,
-    year: '2013/01',
-    path: 'M93,-26L93,36',
-    text: 'Arsenal buy Alexis Sánchez',
-    textOffset: [-25, -35],
-  },
-];
-
 // The config object passed by draw() gives us a width and height
-const config = { width: 600, height: 550, mobileWidth: 300, mobileHeight: 300 };
+const config = {
+  width: 600,
+  height: 550,
+  mobileWidth: 300,
+  mobileHeight: 300,
+  parseTime: d3.timeParse('%Y/%m'),
+  margin: { top: 30, right: 100, bottom: 100, left: 40 },
+  xScale: d3.scaleLinear(),
+  yScale: d3.scaleTime(),
+  line: d3.line().curve(d3.curveStepAfter),
+  xDomain: [-140, 140],
+};
 const isMobile = window.innerWidth < 600 ? true : false;
-const margin = { top: 30, right: 100, bottom: 100, left: 40 },
-  width =
-    (isMobile ? config.mobileWidth : config.width) - margin.left - margin.right,
-  height =
-    (isMobile ? config.mobileHeight : config.height) -
-    margin.top -
-    margin.bottom;
+const usableWidth =
+  (isMobile ? config.mobileWidth : config.width) -
+  config.margin.left -
+  config.margin.right;
+const usableHeight =
+  (isMobile ? config.mobileHeight : config.height) -
+  config.margin.top -
+  config.margin.bottom;
 
 // Clean up SVG container before drawing
 d3.select('#times-vertical-line').html('');
@@ -27,56 +29,47 @@ const svg = d3.select('#times-vertical-line').at({
   height: isMobile ? config.mobileHeight : config.height,
 });
 
-// Date parser
-const parseTime = d3.timeParse('%Y/%m');
-
-// Scales
-const x = d3.scaleLinear().range([0, width]);
-const y = d3.scaleTime().range([height, 0]);
-
 // Line declaration
-const line = d3
-  .line()
-  .x(d => x(d.value))
-  .y(d => y(d.year))
-  .curve(d3.curveStepAfter);
+const line = config.line.x(d => x(d.value)).y(d => y(d.year));
 
 // g is our container
-const g = svg.append('g').translate([margin.left, margin.top]);
+const g = svg.append('g').translate([config.margin.left, config.margin.top]);
 
 d3.json('data.json', (err, dataset) => {
   if (err) throw err;
 
   const processedData = dataset.map(d =>
     Object.assign({}, d, {
-      year: parseTime(d.year),
+      year: config.parseTime(d.year),
       value: parseInt(d.value),
     })
   );
 
   // Min, max values from dataset
   // or computed for each club
-  const hardCordedDomain = [-140, 140];
   const clubDomain = [
     d3.min(processedData, d => d.value),
     d3.max(processedData, d => d.value),
   ];
 
-  // Set domains
+  // Set scales
   // Fixed values x-axis
-  x.domain(hardCordedDomain);
-  y.domain(d3.extent(processedData, d => d.year).reverse());
+  const x = config.xScale.range([0, usableWidth]).domain(config.xDomain);
+
+  const y = config.yScale
+    .range([usableHeight, 0])
+    .domain(d3.extent(processedData, d => d.year).reverse());
 
   // X-axis
   g
     .append('g')
     .at({ class: 'axis axis--x' })
-    .translate([30, height])
+    .translate([30, usableHeight])
     .call(
       d3
         .axisBottom(x)
-        .ticks(isMobile ? 3 : 10)
-        .tickSize(-height, 0, 0)
+        .ticks(isMobile ? 3 : 7)
+        .tickSize(-usableHeight, 0, 0)
         .tickPadding(10)
     );
 
@@ -84,19 +77,19 @@ d3.json('data.json', (err, dataset) => {
   g
     .append('text')
     .at({ class: 'label' })
-    .translate([x(0), height + 50])
+    .translate([x(0), usableHeight + 50])
     .style('text-anchor', 'middle')
     .text('Season balance (£m)');
   g
     .append('text')
     .at({ class: 'label' })
-    .translate([x(0) - 20, margin.top - 55])
+    .translate([x(0) - 20, config.margin.top - 55])
     .style('text-anchor', 'middle')
     .text('⟵ Spent');
   g
     .append('text')
     .at({ class: 'label' })
-    .translate([x(0) + 90, margin.top - 55])
+    .translate([x(0) + 90, config.margin.top - 55])
     .style('text-anchor', 'middle')
     .text('Received ⟶');
 
@@ -115,7 +108,7 @@ d3.json('data.json', (err, dataset) => {
       x1: x(0),
       y1: 0,
       x2: x(0),
-      y2: height,
+      y2: usableHeight,
     })
     .translate([30, 0])
     .style('stroke', '#666');
@@ -127,31 +120,30 @@ d3.json('data.json', (err, dataset) => {
     .at({ class: 'line', d: line })
     .translate([30, 0]);
 
-  // Annotations
-  var swoopy = d3
-    .swoopyDrag()
-    .x(d => x(d.value))
-    .y(d => y(parseTime(d.year)))
-    //.draggable(true)
+  // Annotation layer
+  const annotations = [
+    {
+      type: d3.annotation.annotationLabel,
+      note: {
+        title: 'Arsenal buy Alexis Sánchez',
+        label: '',
+        wrap: 100,
+      },
+      x: x(-65.05),
+      y: y(new Date('2014/01/01')),
+      dy: -50,
+      dx: 0,
+    },
+  ];
+
+  // Include annotations
+  const makeAnnotations = d3
+    .annotation()
+    .type(d3.annotationLabel)
     .annotations(annotations);
-
-  if (!isMobile) {
-    var swoopySel = g
-      .append('g')
-      .attr('class', 'swoop')
-      .call(swoopy);
-  }
-
-  // SVG arrow marker fix
-  svg
-    .append('marker')
-    .attr('id', 'arrow')
-    .attr('viewBox', '-10 -10 20 20')
-    .attr('markerWidth', 6)
-    .attr('markerHeight', 6)
-    .attr('orient', 'auto')
-    .append('circle')
-    .attr('r', '6')
-    .style('fill', '#F37F2F');
-  swoopySel.selectAll('path').attr('marker-start', 'url(#arrow)');
+  g
+    .append('g')
+    .attr('class', 'annotation-group')
+    .call(makeAnnotations)
+    .translate([30, 0]);
 });
